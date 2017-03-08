@@ -79,6 +79,8 @@ namespace Scandimex.Controllers
             {
                 if (ModelState.IsValid)
                 {
+
+
                     _common.bd.CotizacionProducto.Add(_CotProd);
                     _common.bd.SaveChanges();
 
