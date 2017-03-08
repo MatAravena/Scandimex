@@ -1,0 +1,64 @@
+﻿@model Scandimex.Models.CotizacionServicio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CotizacionServicio</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CotizacionId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CotizacionId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TipoServicioCodigo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TipoServicioCodigo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SubCategoría)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SubCategoría)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Descripcion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descripcion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HorasServicio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HorasServicio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ValorHora)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ValorHora)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ValorFinal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ValorFinal)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.CotServId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

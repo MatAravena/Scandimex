@@ -1,0 +1,48 @@
+﻿@model Scandimex.Models.Ciudad
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.LabelFor(model => model.CiudadNombre )
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CiudadNombre)
+        </dd>
+        <dt>
+            @Html.LabelFor(model => model.PaisAbreviacion, "Seleccione País")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pais.PaisNombre)
+        </dd>
+    </dl>
+</div>
+
+
+@*<fieldset>
+        <legend>City</legend>
+
+        <div class="display-label">
+            @Html.LabelFor(model => model.CiudadNombre, "City name")
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.CiudadNombre)
+        </div>
+
+        <div class="display-label">
+            @Html.LabelFor(model => model.CodigoPais, "City name")
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.PaisCodigo.PaisNombre)
+        </div>
+    </fieldset>*@
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CiudadCodigo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

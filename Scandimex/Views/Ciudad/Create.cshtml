@@ -1,0 +1,83 @@
+﻿@model Scandimex.Models.Ciudad
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <legend>Ciudad</legend>
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CiudadNombre, "City name", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CiudadNombre)
+                    @Html.ValidationMessageFor(model => model.CiudadNombre)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.CodigoPais, "Selected country", new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+
+                    @Html.LabelFor(model => model.CodigoPais, "Select a country", new { @class = "control-label col-md-2" })
+                    
+                    @*<select id="CodigoPais" name="CodigoPais">
+                        @foreach (Scandimex.Models.Ciudad _ciu in ViewBag.Paises )
+                        @foreach (var item in ViewBag.Paises)
+                        {
+                            <option with="200" value="@item.PaisAbreviacion">  @item.PaisNombre </option>
+                        }
+                    </select>*@
+
+                    @Html.DropDownListFor(model => model.CodigoPais, new SelectList(ViewBag.Paises, "PaisAbreviacion", "PaisNombre"))
+
+                    @*@Html.EditorFor(model => model.CodigoPais)*@
+                    @Html.ValidationMessageFor(model => model.CodigoPais)
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+        @*<br /><br />
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CiudadNombre)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CiudadNombre)
+                @Html.ValidationMessageFor(model => model.CiudadNombre)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CodigoPais)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CodigoPais)
+                @Html.ValidationMessageFor(model => model.CodigoPais)
+            </div>*@
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

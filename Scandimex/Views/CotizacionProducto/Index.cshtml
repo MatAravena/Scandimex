@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Scandimex.Models.CotizacionProducto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CotizacionId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoProductos.NombreTipoProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoProductos.NombreTipoProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubCategoría)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorUnitario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorFinal)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CotizacionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoProductos.NombreTipoProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoProductos.NombreTipoProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoProductoSub.NombreSubCategoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorUnitario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorFinal)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CotProdId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CotProdId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CotProdId })
+            </td>
+        </tr>
+    }
+
+</table>

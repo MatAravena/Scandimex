@@ -1,0 +1,57 @@
+﻿@model Scandimex.Models.Pais
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<br />
+<fieldset>
+    <legend>Pais</legend>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.LabelFor(model => model.PaisAbreviacion, "Abreviación")
+        </dt>
+        @*Markup omitted for clarity.*@
+        <dd>
+            @Html.DisplayFor(model => model.PaisAbreviacion)
+        </dd>
+        <dt>
+            @Html.LabelFor(model => model.PaisNombre, "Nombre")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PaisNombre)
+        </dd>
+        <dt>
+            @Html.LabelFor(model => model.PaisOrden, "Orden")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PaisOrden)
+        </dd>
+    </dl>
+
+    @*<div class="display-label">
+        @Html.LabelFor(model => model.PaisAbreviacion, "Abreviación")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PaisAbreviacion)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.PaisNombre, "Nombre")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PaisNombre)
+    </div>
+
+    <div class="display-label">        
+        @Html.LabelFor(model => model.PaisOrden, "Orden")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PaisOrden)
+    </div> *@
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { _CodigoAbreviacion = Model.PaisAbreviacion }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,94 @@
+﻿@model Scandimex.Models.CotizacionProducto
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CotizacionProducto</legend>
+
+        @Html.HiddenFor(model => model.CotProdId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CotizacionId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CotizacionId)
+            @Html.ValidationMessageFor(model => model.CotizacionId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TipoProductoCodigo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TipoProductoCodigo)
+            @Html.ValidationMessageFor(model => model.TipoProductoCodigo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SubProductoCodigo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SubProductoCodigo)
+            @Html.ValidationMessageFor(model => model.SubProductoCodigo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SubCategoría)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SubCategoría)
+            @Html.ValidationMessageFor(model => model.SubCategoría)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Descripcion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Descripcion)
+            @Html.ValidationMessageFor(model => model.Descripcion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ValorUnitario)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ValorUnitario)
+            @Html.ValidationMessageFor(model => model.ValorUnitario)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Cantidad)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Cantidad)
+            @Html.ValidationMessageFor(model => model.Cantidad)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ValorFinal)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ValorFinal)
+            @Html.ValidationMessageFor(model => model.ValorFinal)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,211 @@
+﻿@model Scandimex.Models.Cotizaciones
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<br />
+<fieldset>
+    <legend>Cotizaciones</legend>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.CodigoInterno)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CodigoInterno)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.FechaCotizacion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaCotizacion)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Cliente.NombreCompañia)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cliente.NombreCompañia)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Requerido)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Requerido)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Descripcion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descripcion)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.PlazoEntregaDesde)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PlazoEntregaDesde)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.PlazoEntregaHasta)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PlazoEntregaHasta, "dd/MM/yyyy")
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Garantia)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Garantia)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.CondicionesPago)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CondicionesPago)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Pais.PaisNombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pais.PaisNombre)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Ciudad.CiudadNombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Ciudad.CiudadNombre)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Direccion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Direccion)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Validez)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Validez)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Aceptacion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Aceptacion)
+    </div>
+
+    <br />
+
+    @if (Model.CotizacionId == 0)
+    {
+        int _id = Model.CotizacionId;
+    }
+
+
+    <div>
+
+        <h3>Productos</h3>
+        @if (ViewBag.CotProductos != null)
+        {
+            <table>
+                <tr>
+                    <td>@Html.Label("Tipo Producto")  &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Sub Producto")  &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Sub Categoría") &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Descripción") &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Valor Unitario") &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Cantidad") &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Total") &nbsp;&nbsp; </td>
+                </tr>
+
+                @foreach (var item in ViewBag.CotProductos)
+                {
+                    <tr>
+                        <td>@item.TipoProductos.NombreTipoProducto</td>
+                        <td>@item.TipoProductoSub.NombreSubCategoria</td>
+                        <td>@item.SubCategoría</td>
+                        <td>@item.Descripcion</td>
+                        <td>@item.ValorUnitario</td>
+                        <td>@item.Cantidad</td>
+                        <td>@item.ValorFinal</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", "CotizacionProducto", new { _id = (Int32)@item.PersonaContactoId }, null) |
+                            @Html.ActionLink("Details", "Details", "CotizacionProducto", new { _id = (Int32)@item.PersonaContactoId }, null) |
+                            @Html.ActionLink("Delete", "Delete", "CotizacionProducto", new { _id = (Int32)@item.PersonaContactoId }, null)
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <h3>Esta cotización no tiene productos asociados.</h3>
+        }
+
+    </div>
+    <div>
+        <h3>Servicios</h3>
+        @if (ViewBag.CotServicios != null)
+        {
+            <table>
+                <tr>
+                    <td>@Html.Label("Tipo Servicio")  &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Sub Categoría")  &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Descripción") &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Horas de Servicio") &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Valor Hora") &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Total") &nbsp;&nbsp; </td>
+                </tr>
+
+                @foreach (var item in ViewBag.CotServicios)
+                {
+                    <tr>
+                        <td>@item.TipoServicio.NombreTipoServicio</td>
+                        <td>@item.SubCategoría</td>
+                        <td>@item.Descripcion</td>
+                        <td>@item.HorasServicio</td>
+                        <td>@item.ValorHora</td>
+                        <td>@item.Total</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", "CotizacionServicio", new { _id = (Int32)@item.PersonaContactoId }, null) |
+                            @Html.ActionLink("Details", "Details", "CotizacionServicio", new { _id = (Int32)@item.PersonaContactoId }, null) |
+                            @Html.ActionLink("Delete", "Delete", "CotizacionServicio", new { _id = (Int32)@item.PersonaContactoId }, null)
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <h3>Esta cotización no tiene servicios asociados.</h3>
+        }
+    </div>
+
+    <br />
+
+
+
+</fieldset>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
