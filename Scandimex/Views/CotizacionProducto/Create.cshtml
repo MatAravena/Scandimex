@@ -6,8 +6,10 @@
 
 <h2>Asociar nuevo producto a la cotización</h2>
 <br />
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "CotizacionProducto", new { _CotProd = Model, idCotizacion = ViewBag.CotizacionId }, FormMethod.Post, null))
 {
+    @*@using (Html.BeginForm())*@
+
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
     @*@Html.HiddenFor("CotizacionID", ViewBag.CotizacionID, null)*@
@@ -20,13 +22,15 @@
             @Html.LabelFor(model => model.CotizacionId, "Codigo Interno")
         </div>
         <div class="editor-field">
-            @{ var CotizacionId = ViewBag.CotizacionID;
+            @{ var CotizacionId = ViewBag.CotizacionID.ToString();
             }
 
-            @Html.TextBoxFor(m => CotizacionId, new { style = "display:none;" })
+            @*@Html.TextBoxFor(m => CotizacionId, new { style = "display:none;" })*@
             @*@ViewBag.CotizacionID*@
-            @Html.TextBoxFor(model => model.CotizacionId, new { htmlAttributes = new { @class = "form-control", @Value = CotizacionId, @type = "hidden" } })
+            @*@Html.TextBoxFor(model => model.CotizacionId, new { htmlAttributes = new { @class = "form-control", @value = CotizacionId, @type = "hidden" } })
+            @Html.TextBoxFor(model => model.CotizacionId, new { htmlAttributes = new { Placeholder = "asdasdasd", @class = "form-control", Value = "sdfsdfsdfsdfsdf" } })*@
             @ViewBag.CotizacionCodInter
+
         </div>
 
         <div id="DivTipoProducto" class="form-group">
@@ -94,10 +98,15 @@
         </p>
     </fieldset>
 
-
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>
+
+    <p>
+        <input type="submit" value="Delete2" />
+    </p>
+
+
 
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
