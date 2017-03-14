@@ -73,20 +73,22 @@ namespace Scandimex.Controllers
         // POST: /CotizacionProducto/Create
 
         [HttpPost]
-        public ActionResult Create(CotizacionProducto _CotProd, int CotizacionId)
+        public ActionResult Create(CotizacionProducto _CotProd, int? CotId)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-
-
                     _common.bd.CotizacionProducto.Add(_CotProd);
                     _common.bd.SaveChanges();
-
                     //return RedirectToAction("Create", "EP", routeValues: new { est = est });
-                    return this.RedirectToAction("Index");
+                    return this.RedirectToAction("Index", "Cotizacion");
                 }
+
+                var errors = ModelState
+                    .Where(x => x.Value.Errors.Count > 0)
+                    .Select(x => new { x.Key, x.Value.Errors })
+                    .ToArray();
 
                 return View(_CotProd);
             }
@@ -106,7 +108,7 @@ namespace Scandimex.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            CotizacionProducto _cot = _common.bd.CotizacionProducto.Find(_id);
+            CotizacionProducto _cot = _common.bd.CotizacionProducto.Find(_id); 
 
             if (_cot == null)
             {

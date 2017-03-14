@@ -6,7 +6,8 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -16,28 +17,47 @@
         @Html.HiddenFor(model => model.CotProdId)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.CotizacionId)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.CotizacionId)
-            @Html.ValidationMessageFor(model => model.CotizacionId)
+                @Html.LabelFor(model => model.CotizacionId)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CotizacionId)
+                @Html.ValidationMessageFor(model => model.CotizacionId)
+            </div>
+
+        <div id="DivTipoProducto" class="form-group">
+            <div class="col-md-10">
+
+                @Html.LabelFor(model => model.TipoProductoCodigo, "Seleccione tipo de producto", new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.TipoProductoCodigo, new SelectList(ViewBag.TipoProductos, "TipoProductoCodigo", "NombreTipoProducto"))
+
+                @Html.ValidationMessageFor(model => model.TipoProductoCodigo, "Debe seleccionar algun tipo de producto.")
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.TipoProductoCodigo)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.TipoProductoCodigo)
-            @Html.ValidationMessageFor(model => model.TipoProductoCodigo)
-        </div>
+        @*<div class="editor-label">
+                @Html.LabelFor(model => model.TipoProductoCodigo)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.TipoProductoCodigo)
+                @Html.ValidationMessageFor(model => model.TipoProductoCodigo)
+            </div>*@
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.SubProductoCodigo)
+        <div id="DivSubTipoProducto" class="form-group">
+            <div class="col-md-10">
+
+                @Html.LabelFor(model => model.SubProductoCodigo, "Seleccione sub tipo de producto", new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.SubProductoCodigo, new SelectList(String.Empty, "SubProductoCodigo", "NombreSubCategoria"))
+
+                @Html.ValidationMessageFor(model => model.SubProductoCodigo, "Debe seleccionar algun sub tipo de producto.")
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.SubProductoCodigo)
-            @Html.ValidationMessageFor(model => model.SubProductoCodigo)
-        </div>
+        @*<div class="editor-label">
+                @Html.LabelFor(model => model.SubProductoCodigo)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SubProductoCodigo)
+                @Html.ValidationMessageFor(model => model.SubProductoCodigo)
+            </div>*@
 
         <div class="editor-label">
             @Html.LabelFor(model => model.SubCategoría)
@@ -91,4 +111,45 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/jscript">
+
+        $(function () {
+            $("#TipoProductoCodigo").change(function () {
+                var selectedItem = $(this).val();
+                var ddlCitys = $("#SubProductoCodigo");
+                var statesProgress = $("#states-loading-progress");
+                statesProgress.show();
+
+                var str;
+                $("#TipoProductoCodigo option:selected").each(function () {
+                    str = $(this).val();
+                })
+
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "@(Url.Action("ObtenerSubTipoProducto"))",
+                    data: { "_CodigoTipoProducto": str },
+                    success: function (data) {
+                        ddlCitys.html('');
+
+                        $.each(data, function (id, option) {
+                            ddlCitys.append($('<option></option>').val(option.SubProductoCodigo).html(option.NombreSubCategoria));
+                        });
+
+                        statesProgress.hide();
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert('Failed to retrieve sub tipo productos.');
+                        statesProgress.hide();
+                    }
+                });
+            });
+
+            //$("#CodigoPais").cli (function () {
+            $("#TipoProductoCodigo").change();
+
+        });
+    </script>
+
 }

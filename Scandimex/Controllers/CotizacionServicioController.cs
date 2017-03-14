@@ -58,11 +58,12 @@ namespace Scandimex.Controllers
         //
         // GET: /CotizacionServicio/Create
 
-        public ActionResult Create()
+        public ActionResult Create(int _id)
         {
-            //ViewBag.TipoProductos = (from m in _common.bd.TipoProducto
-            //                         orderby m.NombreTipoProducto ascending
-            //                         select m).ToList();
+
+            Cotizaciones cot = _common.bd.Cotizacion.Find(_id);
+            ViewBag.CotizacionID = cot.CotizacionId;
+            ViewBag.CotizacionCodInter = cot.CodigoInterno;
 
             ViewBag.TipoServicios = from ts in _common.bd.TipoServicio orderby ts.NombreTipoServicio ascending select ts;
             return View();
@@ -81,8 +82,14 @@ namespace Scandimex.Controllers
                     _common.bd.CotizacionServicio.Add(_CotServ);
                     _common.bd.SaveChanges();
 
-                    return this.RedirectToAction("Index");
+                    return this.RedirectToAction("Index", "Cotizacion");
                 }
+
+                var errors = ModelState
+                    .Where(x => x.Value.Errors.Count > 0)
+                    .Select(x => new { x.Key, x.Value.Errors })
+                    .ToArray();
+
 
                 return View(_CotServ);
             }

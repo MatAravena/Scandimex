@@ -6,6 +6,9 @@
 
 <h2>Create</h2>
 
+@{ var CotizacionId = (Int32)ViewBag.CotizacionID;
+}
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -15,12 +18,13 @@
         <legend>CotizacionServicio</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.CotizacionId)
+            @Html.LabelFor(model => model.CotizacionId, "Codigo Interno de Cotización")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.CotizacionId)
-            @Html.ValidationMessageFor(model => model.CotizacionId)
+            @Html.TextBoxFor(model => model.CotizacionId, new { style = "display:none;", Value = CotizacionId })
+            @ViewBag.CotizacionCodInter
         </div>
+        <br /> 
 
         <div id="DivTipoServicio" class="form-group">
             <div class="col-md-10">

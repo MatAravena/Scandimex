@@ -28,20 +28,20 @@
                 @*@Html.LabelFor(model => model.CodigoPais, "Selected country", new { @class = "control-label col-md-2" })*@
                 <div class="col-md-10">
 
-                    @Html.LabelFor(model => model.CodigoPais, "Select a country", new { @class = "control-label col-md-2" })
-                    
-                    @*<select id="CodigoPais" name="CodigoPais">
-                        @foreach (Scandimex.Models.Ciudad _ciu in ViewBag.Paises )
-                        @foreach (var item in ViewBag.Paises)
-                        {
-                            <option with="200" value="@item.PaisAbreviacion">  @item.PaisNombre </option>
-                        }
-                    </select>*@
+                    @Html.LabelFor(model => model.PaisAbreviacion, "Select a country", new { @class = "control-label col-md-2" })
 
-                    @Html.DropDownListFor(model => model.CodigoPais, new SelectList(ViewBag.Paises, "PaisAbreviacion", "PaisNombre"))
+                    @*<select id="CodigoPais" name="CodigoPais">
+                            @foreach (Scandimex.Models.Ciudad _ciu in ViewBag.Paises )
+                            @foreach (var item in ViewBag.Paises)
+                            {
+                                <option with="200" value="@item.PaisAbreviacion">  @item.PaisNombre </option>
+                            }
+                        </select>*@
+
+                    @Html.DropDownListFor(model => model.PaisAbreviacion, new SelectList(ViewBag.Paises, "PaisAbreviacion", "PaisNombre"))
 
                     @*@Html.EditorFor(model => model.CodigoPais)*@
-                    @Html.ValidationMessageFor(model => model.CodigoPais)
+                    @Html.ValidationMessageFor(model => model.PaisAbreviacion)
                 </div>
             </div>
 

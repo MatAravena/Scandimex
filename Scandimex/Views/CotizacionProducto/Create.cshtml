@@ -6,32 +6,24 @@
 
 <h2>Asociar nuevo producto a la cotización</h2>
 <br />
-@using (Html.BeginForm("Create", "CotizacionProducto", new { _CotProd = Model, idCotizacion = ViewBag.CotizacionId }, FormMethod.Post, null))
+@{ var CotizacionId = (Int32)ViewBag.CotizacionID;
+}
+@using (Html.BeginForm("Create", "CotizacionProducto", new { _CotProd = Model}, FormMethod.Post, null))
 {
-    @*@using (Html.BeginForm())*@
-
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-    @*@Html.HiddenFor("CotizacionID", ViewBag.CotizacionID, null)*@
-    @Html.HiddenFor(model => model.CotizacionId, null)
 
     <fieldset>
         <legend>CotizacionProducto</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.CotizacionId, "Codigo Interno")
+            @Html.LabelFor(model => model.CotizacionId, "Codigo Interno de Cotización")
         </div>
         <div class="editor-field">
-            @{ var CotizacionId = ViewBag.CotizacionID.ToString();
-            }
-
-            @*@Html.TextBoxFor(m => CotizacionId, new { style = "display:none;" })*@
-            @*@ViewBag.CotizacionID*@
-            @*@Html.TextBoxFor(model => model.CotizacionId, new { htmlAttributes = new { @class = "form-control", @value = CotizacionId, @type = "hidden" } })
-            @Html.TextBoxFor(model => model.CotizacionId, new { htmlAttributes = new { Placeholder = "asdasdasd", @class = "form-control", Value = "sdfsdfsdfsdfsdf" } })*@
+            @Html.TextBoxFor(model => model.CotizacionId, new { style = "display:none;", Value = CotizacionId })
             @ViewBag.CotizacionCodInter
-
         </div>
+        <br />
 
         <div id="DivTipoProducto" class="form-group">
             <div class="col-md-10">

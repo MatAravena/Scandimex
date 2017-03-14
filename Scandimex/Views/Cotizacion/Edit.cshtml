@@ -185,9 +185,9 @@
                             <td>@item.Cantidad</td>
                             <td>@item.ValorFinal</td>
                             <td>
-                                @Html.ActionLink("Edit", "Edit", "CotizacionProducto", new { _id = (Int32)@item.PersonaContactoId }, null) |
-                                @Html.ActionLink("Details", "Details", "CotizacionProducto", new { _id = (Int32)@item.PersonaContactoId }, null) |
-                                @Html.ActionLink("Delete", "Delete", "CotizacionProducto", new { _id = (Int32)@item.PersonaContactoId }, null)
+                                @Html.ActionLink("Edit", "Edit", "CotizacionProducto", new { _id = (Int32)@item.CotizacionId }, null) |
+                                @Html.ActionLink("Details", "Details", "CotizacionProducto", new { _id = (Int32)@item.CotizacionId }, null) |
+                                @Html.ActionLink("Delete", "Delete", "CotizacionProducto", new { _id = (Int32)@item.CotizacionId }, null)
                             </td>
                         </tr>
                     }
@@ -223,11 +223,11 @@
                             <td>@item.Descripcion</td>
                             <td>@item.HorasServicio</td>
                             <td>@item.ValorHora</td>
-                            <td>@item.Total</td>
+                            <td>@item.ValorFinal</td>
                             <td>
-                                @Html.ActionLink("Edit", "Edit", "CotizacionServicio", new { _id = (Int32)@item.PersonaContactoId }, null) |
-                                @Html.ActionLink("Details", "Details", "CotizacionServicio", new { _id = (Int32)@item.PersonaContactoId }, null) |
-                                @Html.ActionLink("Delete", "Delete", "CotizacionServicio", new { _id = (Int32)@item.PersonaContactoId }, null)
+                                @Html.ActionLink("Edit", "Edit", "CotizacionServicio", new { _id = (Int32)@item.CotizacionId }, null) |
+                                @Html.ActionLink("Details", "Details", "CotizacionServicio", new { _id = (Int32)@item.CotizacionId }, null) |
+                                @Html.ActionLink("Delete", "Delete", "CotizacionServicio", new { _id = (Int32)@item.CotizacionId }, null)
                             </td>
                         </tr>
                     }
