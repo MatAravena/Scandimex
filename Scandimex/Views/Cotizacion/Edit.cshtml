@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Editar</h2>
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -185,9 +185,9 @@
                             <td>@item.Cantidad</td>
                             <td>@item.ValorFinal</td>
                             <td>
-                                @Html.ActionLink("Edit", "Edit", "CotizacionProducto", new { _id = (Int32)@item.CotizacionId }, null) |
-                                @Html.ActionLink("Details", "Details", "CotizacionProducto", new { _id = (Int32)@item.CotizacionId }, null) |
-                                @Html.ActionLink("Delete", "Delete", "CotizacionProducto", new { _id = (Int32)@item.CotizacionId }, null)
+                                @Html.ActionLink("Edit", "Edit", "CotizacionProducto", new { _id = (Int32)@item.CotProdId, _IdCotizacion = Model.CotizacionId }, null) |
+                                @Html.ActionLink("Details", "Details", "CotizacionProducto", new { _id = (Int32)@item.CotProdId, _IdCotizacion = Model.CotizacionId }, null) |
+                                @Html.ActionLink("Delete", "Delete", "CotizacionProducto", new { _id = (Int32)@item.CotProdId, _IdCotizacion = Model.CotizacionId }, null)
                             </td>
                         </tr>
                     }
@@ -225,9 +225,9 @@
                             <td>@item.ValorHora</td>
                             <td>@item.ValorFinal</td>
                             <td>
-                                @Html.ActionLink("Edit", "Edit", "CotizacionServicio", new { _id = (Int32)@item.CotizacionId }, null) |
-                                @Html.ActionLink("Details", "Details", "CotizacionServicio", new { _id = (Int32)@item.CotizacionId }, null) |
-                                @Html.ActionLink("Delete", "Delete", "CotizacionServicio", new { _id = (Int32)@item.CotizacionId }, null)
+                                @Html.ActionLink("Edit", "Edit", "CotizacionServicio", new { _id = (Int32)@item.CotServId, _IdCotizacion = Model.CotizacionId }, null) |
+                                @Html.ActionLink("Details", "Details", "CotizacionServicio", new { _id = (Int32)@item.CotServId, _IdCotizacion = Model.CotizacionId }, null) |
+                                @Html.ActionLink("Delete", "Delete", "CotizacionServicio", new { _id = (Int32)@item.CotServId, _IdCotizacion = Model.CotizacionId }, null)
                             </td>
                         </tr>
                     }

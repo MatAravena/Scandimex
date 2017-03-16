@@ -4,61 +4,68 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalles</h2>
 
 <fieldset>
     <legend>CotizacionServicio</legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.CotizacionId)
+    @{ var CotizacionId = (Int32)ViewBag.CotizacionID;
+    }
+
+    @Html.HiddenFor(model => model.CotProdId)
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.CotizacionId, "Codigo Interno de Cotización")
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.CotizacionId)
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.CotizacionId, new { style = "display:none;", Value = CotizacionId })
+        @ViewBag.CotizacionCodInter
     </div>
+    <br />
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.TipoServicioCodigo)
+         @Html.LabelFor(model => model.TipoServicioCodigo)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.TipoServicioCodigo)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.SubCategoría)
+         @Html.LabelFor(model => model.SubCategoría)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.SubCategoría)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Descripcion)
+         @Html.LabelFor(model => model.Descripcion)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Descripcion)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.HorasServicio)
+         @Html.LabelFor(model => model.HorasServicio)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.HorasServicio)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.ValorHora)
+         @Html.LabelFor(model => model.ValorHora)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.ValorHora)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.ValorFinal)
+         @Html.LabelFor(model => model.ValorFinal)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.ValorFinal)
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.CotServId }) |
+    @Html.ActionLink("Edit", "Edit", new { _id = Model.CotServId, _IdCotizacion = CotizacionId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

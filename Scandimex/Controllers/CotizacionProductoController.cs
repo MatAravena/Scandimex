@@ -37,8 +37,8 @@ namespace Scandimex.Controllers
         }
 
         //
-        // GET: /CotizacionProducto/Details/5
-        public ActionResult Details(int _id)
+        // GET: /CotizacionProducto/Details/5        public ActionResult Edit(int _id, int _IdCotizacion)
+        public ActionResult Details(int _id, int _IdCotizacion)
         {
             try
             {
@@ -48,6 +48,11 @@ namespace Scandimex.Controllers
                 {
                     ViewBag.TipoProductos = from tp in _common.bd.TipoProducto orderby tp.NombreTipoProducto ascending select tp;
                 }
+
+                Cotizaciones cot = _common.bd.Cotizacion.Find(_IdCotizacion);
+                ViewBag.CotizacionID = cot.CotizacionId;
+                ViewBag.CotizacionCodInter = cot.CodigoInterno;
+
                 return View(_ListCotizacion);
             }
             catch (Exception ex)
@@ -81,8 +86,7 @@ namespace Scandimex.Controllers
                 {
                     _common.bd.CotizacionProducto.Add(_CotProd);
                     _common.bd.SaveChanges();
-                    //return RedirectToAction("Create", "EP", routeValues: new { est = est });
-                    return this.RedirectToAction("Index", "Cotizacion");
+                    return RedirectToAction("Details", "Cotizacion", new { _id = _CotProd.CotizacionId });
                 }
 
                 var errors = ModelState
@@ -101,14 +105,18 @@ namespace Scandimex.Controllers
         //
         // GET: /CotizacionProducto/Edit/5
 
-        public ActionResult Edit(int _id)
+        public ActionResult Edit(int _id, int _IdCotizacion)
         {
             if (_id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            CotizacionProducto _cot = _common.bd.CotizacionProducto.Find(_id); 
+            CotizacionProducto _cot = _common.bd.CotizacionProducto.Find(_id);
+
+            Cotizaciones cot = _common.bd.Cotizacion.Find(_IdCotizacion);
+            ViewBag.CotizacionID = cot.CotizacionId;
+            ViewBag.CotizacionCodInter = cot.CodigoInterno;
 
             if (_cot == null)
             {
@@ -124,7 +132,7 @@ namespace Scandimex.Controllers
         // POST: /CotizacionProducto/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, CotizacionProducto _cot)
+        public ActionResult Edit(int _id, CotizacionProducto _cot)
         {
             try
             {
@@ -132,7 +140,7 @@ namespace Scandimex.Controllers
                 {
                     _common.bd.Entry(_cot).State = EntityState.Modified;
                     _common.bd.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Details", "Cotizacion", new { _id = _cot.CotizacionId });
                 }
 
                 return View(_cot);
@@ -146,7 +154,7 @@ namespace Scandimex.Controllers
         //
         // GET: /CotizacionProducto/Delete/5
 
-        public ActionResult Delete(int _id)
+        public ActionResult Delete(int _id, int _IdCotizacion)
         {
             if (_id == 0)
             {
@@ -176,9 +184,10 @@ namespace Scandimex.Controllers
                 CotizacionProducto _cot = _common.bd.CotizacionProducto.Find(_id);
                 if (ModelState.IsValid)
                 {
+                    Int32 id = _cot.CotizacionId;
                     _common.bd.CotizacionProducto.Remove(_cot);
                     _common.bd.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Details", "Cotizacion", new { _id = id });
                 }
 
                 return View();
@@ -195,7 +204,7 @@ namespace Scandimex.Controllers
             if (!String.IsNullOrEmpty(_CodigoTipoProducto))
             {
                 int codigoSubProducto;
-                if (int.TryParse(_CodigoTipoProducto, out  codigoSubProducto))
+                if (int.TryParse(_CodigoTipoProducto, out codigoSubProducto))
                 {
                     _ListSubTipoProducto = _common.GetSubProductos(codigoSubProducto);
                 }

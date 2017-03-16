@@ -6,9 +6,11 @@
 
 <h2>Asociar nuevo producto a la cotización</h2>
 <br />
+
 @{ var CotizacionId = (Int32)ViewBag.CotizacionID;
 }
-@using (Html.BeginForm("Create", "CotizacionProducto", new { _CotProd = Model}, FormMethod.Post, null))
+
+@using (Html.BeginForm("Create", "CotizacionProducto", new { _CotProd = Model }, FormMethod.Post, null))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -93,10 +95,6 @@
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>
-
-    <p>
-        <input type="submit" value="Delete2" />
-    </p>
 
 
 

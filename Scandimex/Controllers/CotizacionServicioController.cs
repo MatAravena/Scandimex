@@ -81,8 +81,7 @@ namespace Scandimex.Controllers
                 {
                     _common.bd.CotizacionServicio.Add(_CotServ);
                     _common.bd.SaveChanges();
-
-                    return this.RedirectToAction("Index", "Cotizacion");
+                    return RedirectToAction("Details", "Cotizacion", new { _id = _CotServ.CotizacionId });
                 }
 
                 var errors = ModelState
@@ -102,7 +101,7 @@ namespace Scandimex.Controllers
         //
         // GET: /CotizacionServicio/Edit/5
 
-        public ActionResult Edit(int _id)
+        public ActionResult Edit(int _id, int _IdCotizacion)
         {
             if (_id == 0)
             {
@@ -125,7 +124,7 @@ namespace Scandimex.Controllers
         // POST: /CotizacionServicio/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, CotizacionServicio _cot)
+        public ActionResult Edit(int _id, CotizacionServicio _cot)
         {
             try
             {
@@ -133,7 +132,7 @@ namespace Scandimex.Controllers
                 {
                     _common.bd.Entry(_cot).State = EntityState.Modified;
                     _common.bd.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Details", "Cotizacion", new { _id = _cot.CotizacionId });
                 }
 
                 return View(_cot);
@@ -147,7 +146,7 @@ namespace Scandimex.Controllers
         //
         // GET: /CotizacionServicio/Delete/5
 
-        public ActionResult Delete(int _id)
+        public ActionResult Delete(int _id, int _IdCotizacion)
         {
             if (_id == 0)
             {
@@ -177,9 +176,10 @@ namespace Scandimex.Controllers
                 CotizacionServicio _cot = _common.bd.CotizacionServicio.Find(_id);
                 if (ModelState.IsValid)
                 {
+                    Int32 id = _cot.CotizacionId;
                     _common.bd.CotizacionServicio.Remove(_cot);
                     _common.bd.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Details", "Cotizacion", new { _id = id });
                 }
 
                 return View();
