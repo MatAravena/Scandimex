@@ -12,113 +12,141 @@
     <div class="display-label" style="visibility:hidden ">
         @Html.LabelFor(model => model.CotizacionId)
     </div>
-
-    <div class="display-label">
-        @Html.LabelFor(model => model.CodigoInterno)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.CodigoInterno)
-    </div>
-
-    <div class="display-label">
-        @Html.LabelFor(model => model.FechaCotizacion)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.FechaCotizacion)
-    </div>
-
-    <div class="display-label">
-        @Html.LabelFor(model => model.IdCliente)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Cliente.NombreCompañia)
-    </div>
-
-    <div class="display-label">
-        @Html.LabelFor(model => model.Requerido)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Requerido)
-    </div>
-
-    <div class="display-label">
-        @Html.LabelFor(model => model.Descripcion)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Descripcion)
-    </div>
-
-    <div class="display-label">
-        @Html.LabelFor(model => model.PlazoEntregaDesde)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.PlazoEntregaDesde)
-    </div>
-
-    <div class="display-label">
-        @Html.LabelFor(model => model.PlazoEntregaHasta)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.PlazoEntregaHasta)
-    </div>
-
-    <div class="display-label">
-        @Html.LabelFor(model => model.Garantia)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Garantia)
-    </div>
-
-    <div class="display-label">
-        @Html.LabelFor(model => model.CondicionesPago)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.CondicionesPago)
-    </div>
-
-    <div class="display-label">
-        @Html.LabelFor(model => model.PaisAbreviacion)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Pais.PaisNombre)
-    </div>
-
-    <div class="display-label">
-        @Html.LabelFor(model => model.Ciudad.CiudadNombre)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.CiudadCodigo)
-    </div>
-
-    <div class="display-label">
-        @Html.LabelFor(model => model.Direccion)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Direccion)
-    </div>
-
-    <div class="display-label">
-        @Html.LabelFor(model => model.Validez)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Validez)
-    </div>
-
-    <div class="display-label">
-        @Html.LabelFor(model => model.Aceptacion)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Aceptacion)
-    </div>
+    <table>
+        <tr>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.CodigoInterno)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.CodigoInterno)
+                </div>
+            </td>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.FechaCotizacion)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.FechaCotizacion)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.IdCliente)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Cliente.NombreCompañia)
+                </div>
+            </td>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.Requerido)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Requerido)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.Descripcion)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Descripcion)
+                </div>
+            </td>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.PlazoEntregaDesde)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.PlazoEntregaDesde)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.PlazoEntregaHasta)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.PlazoEntregaHasta)
+                </div>
+            </td>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.Garantia)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Garantia)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.CondicionesPago)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.CondicionesPago)
+                </div>
+            </td>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.PaisAbreviacion)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Pais.PaisNombre)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.Ciudad.CiudadNombre)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.CiudadCodigo)
+                </div>
+            </td>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.Direccion)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Direccion)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.Validez)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Validez)
+                </div>
+            </td>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.Aceptacion)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Aceptacion)
+                </div>
+            </td>
+        </tr>
+    </table>
 
     @if (Model.CotizacionId == 0)
     {
         int _id = Model.CotizacionId;
     }
 
-
     <div>
-
         <h3>Productos</h3>
         @Html.ActionLink("Nuevo producto", "Create", "CotizacionProducto", new { _id = Model.CotizacionId }, null)
         <br />

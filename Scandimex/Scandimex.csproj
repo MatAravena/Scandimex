@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -487,7 +488,6 @@
     <Content Include="Views\Cotizacion\Index.cshtml" />
     <Content Include="Views\Pais\Index.cshtml" />
     <Content Include="Views\Cotizacion\Details.cshtml" />
-    <Content Include="Views\Cotizacion\Edit.cshtml" />
     <Content Include="Views\Cotizacion\Delete.cshtml" />
     <Content Include="Views\Cotizacion\Create.cshtml" />
     <Content Include="Views\CotizacionProducto\Index.cshtml" />
@@ -500,6 +500,7 @@
     <Content Include="Views\CotizacionServicio\Details.cshtml" />
     <Content Include="Views\CotizacionServicio\Edit.cshtml" />
     <Content Include="Views\CotizacionServicio\Delete.cshtml" />
+    <Content Include="Views\Cotizacion\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

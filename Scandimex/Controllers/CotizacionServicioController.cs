@@ -40,12 +40,16 @@ namespace Scandimex.Controllers
         //
         // GET: /CotizacionServicio/Details/5
 
-        public ActionResult Details(int _id)
+        public ActionResult Details(int _id, int _IdCotizacion)
         {
             try
             {
                 var _ListCotizacion = _common.bd.CotizacionServicio.Find(_id);
                 ViewBag.TipoServicios = from ts in _common.bd.TipoServicio orderby ts.NombreTipoServicio ascending select ts;
+
+                Cotizaciones cot = _common.bd.Cotizacion.Find(_IdCotizacion);
+                ViewBag.CotizacionID = cot.CotizacionId;
+                ViewBag.CotizacionCodInter = cot.CodigoInterno;
 
                 return View(_ListCotizacion);
             }
@@ -73,7 +77,7 @@ namespace Scandimex.Controllers
         // POST: /CotizacionServicio/Create
 
         [HttpPost]
-        public ActionResult Create(CotizacionServicio _CotServ)
+        public ActionResult Create(CotizacionServicio _CotServ, int? CotId)
         {
             try
             {
@@ -88,7 +92,6 @@ namespace Scandimex.Controllers
                     .Where(x => x.Value.Errors.Count > 0)
                     .Select(x => new { x.Key, x.Value.Errors })
                     .ToArray();
-
 
                 return View(_CotServ);
             }
@@ -114,6 +117,10 @@ namespace Scandimex.Controllers
             {
                 return HttpNotFound();
             }
+
+            Cotizaciones cot = _common.bd.Cotizacion.Find(_IdCotizacion);
+            ViewBag.CotizacionID = cot.CotizacionId;
+            ViewBag.CotizacionCodInter = cot.CodigoInterno;
 
             ViewBag.TipoServicios = from ts in _common.bd.TipoServicio orderby ts.NombreTipoServicio ascending select ts;
 
@@ -188,6 +195,20 @@ namespace Scandimex.Controllers
             {
                 return View("Error", ex);
             }
+        }
+
+        public JsonResult ObtenerSubTipoProducto(String _CodigoTipoProducto)
+        {
+            List<TipoProductoSub> _ListSubTipoProducto = null;
+            if (!String.IsNullOrEmpty(_CodigoTipoProducto))
+            {
+                int codigoSubProducto;
+                if (int.TryParse(_CodigoTipoProducto, out codigoSubProducto))
+                {
+                    _ListSubTipoProducto = _common.GetSubProductos(codigoSubProducto);
+                }
+            }
+            return Json(_ListSubTipoProducto, JsonRequestBehavior.AllowGet);
         }
     }
 }

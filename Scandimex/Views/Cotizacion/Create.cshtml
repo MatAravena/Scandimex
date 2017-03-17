@@ -36,10 +36,10 @@
                         @Html.LabelFor(model => model.FechaCotizacion)
                     </div>
                     <div class="editor-field">
-                        @Html.TextBoxFor(model => model.FechaCotizacion,"{0:dd/MM/yyyy}", new { @class = "datepicker" })
+                        @Html.TextBoxFor(model => model.FechaCotizacion, "{0:dd/MM/yyyy}", new { @class = "datepicker" })
                         @*@Html.TextBoxFor(model => model.FechaCotizacion, string.Empty, new { @class = "datepicker" })*@
                         @Html.ValidationMessageFor(model => model.FechaCotizacion)
-                            @*@Html.TextBox("", String.Format("{0:dd/MM/yyyy}", Model.Value), new { @class = "jq-date" })*@
+                        @*@Html.TextBox("", String.Format("{0:dd/MM/yyyy}", Model.Value), new { @class = "jq-date" })*@
                     </div>
                 </td>
             </tr>
@@ -80,13 +80,13 @@
                 <td>
 
 
-                @*<div class="editor-label">
-                        @Html.LabelFor(model => model.FechaCotizacion)
-                    </div>
-                    <div class="editor-field">
-                        @Html.TextBoxFor(model => model.FechaCotizacion, string.Empty, new { @class = "datepicker" })
-                        @Html.ValidationMessageFor(model => model.FechaCotizacion)
-                    </div>*@
+                    @*<div class="editor-label">
+                            @Html.LabelFor(model => model.FechaCotizacion)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.FechaCotizacion, string.Empty, new { @class = "datepicker" })
+                            @Html.ValidationMessageFor(model => model.FechaCotizacion)
+                        </div>*@
 
                     <div class="editor-label">
                         @Html.LabelFor(model => model.PlazoEntregaDesde)
@@ -185,32 +185,32 @@
             </tr>
         </table>
 
-                @*<div id="Servicios">
-                        <h3>Servicies</h3>
-                        <p>
-                            <input type="submit" value="Add Servicie" name="AddServicies" />
-                        </p>
-                         @using (Html.BeginForm("Action", "Controller")) {
-                            Html.RenderPartial("~/Views/WidgetEditor/_CreateImageWidget.cshtml")}
+        @*<div id="Servicios">
+                <h3>Servicies</h3>
+                <p>
+                    <input type="submit" value="Add Servicie" name="AddServicies" />
+                </p>
+                 @using (Html.BeginForm("Action", "Controller")) {
+                    Html.RenderPartial("~/Views/WidgetEditor/_CreateImageWidget.cshtml")}
 
-                        <div id="PartialServicio">
-                            @Html.Partial("/Views/CotizacionServicio/Create.cshtml", model: Model )
-                        </div>
-                    </div>
+                <div id="PartialServicio">
+                    @Html.Partial("/Views/CotizacionServicio/Create.cshtml", model: Model )
+                </div>
+            </div>
 
-                    <div id="Productos">
-                        <h3>Products</h3>
-                        <p>
-                            <input type="submit" value="Add Product" name="AddProduct" />
-                        </p>
-                        <div id="PartialServicio">
-                            @Html.Partial("/Views/CotizacionProducto/Create.cshtml", model: Model)
-                        </div>
-                    </div>*@
+            <div id="Productos">
+                <h3>Products</h3>
+                <p>
+                    <input type="submit" value="Add Product" name="AddProduct" />
+                </p>
+                <div id="PartialServicio">
+                    @Html.Partial("/Views/CotizacionProducto/Create.cshtml", model: Model)
+                </div>
+            </div>*@
 
-                        <p>
-                            <input type="submit" value="Create" />
-                        </p>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
     </fieldset>
 }
 

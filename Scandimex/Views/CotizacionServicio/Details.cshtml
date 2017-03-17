@@ -24,35 +24,35 @@
     <br />
 
     <div class="display-label">
-         @Html.LabelFor(model => model.TipoServicioCodigo)
+        @Html.LabelFor(model => model.TipoServicioCodigo)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.TipoServicioCodigo)
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.SubCategoría)
+        @Html.LabelFor(model => model.SubCategoría)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.SubCategoría)
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.Descripcion)
+        @Html.LabelFor(model => model.Descripcion)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Descripcion)
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.HorasServicio)
+        @Html.LabelFor(model => model.HorasServicio)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.HorasServicio)
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.ValorHora)
+        @Html.LabelFor(model => model.ValorHora)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.ValorHora)
@@ -60,13 +60,13 @@
 
 
     <div class="display-label">
-         @Html.LabelFor(model => model.ValorFinal)
+        @Html.LabelFor(model => model.ValorFinal)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.ValorFinal)
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { _id = Model.CotServId, _IdCotizacion = CotizacionId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", "CotizacionServicio", new { _id = Model.CotServId, _IdCotizacion = CotizacionId }, null) |
+    @Html.ActionLink("Regresar a Cotización", "Details", "Cotizacion", new { _id = Model.CotizacionId }, null)
 </p>

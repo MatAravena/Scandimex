@@ -13,15 +13,19 @@
     <fieldset>
         <legend>CotizacionServicio</legend>
 
+        @{ var CotizacionId = (Int32)ViewBag.CotizacionID;
+        }
+
         @Html.HiddenFor(model => model.CotServId)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.CotizacionId)
+            @Html.LabelFor(model => model.CotizacionId, "Codigo Interno de Cotización")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.CotizacionId)
-            @Html.ValidationMessageFor(model => model.CotizacionId)
+            @Html.TextBoxFor(model => model.CotizacionId, new { style = "display:none;", Value = CotizacionId })
+            @ViewBag.CotizacionCodInter
         </div>
+        <br />
 
         <div class="editor-label">
             @Html.LabelFor(model => model.TipoServicioCodigo)
@@ -78,7 +82,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+   @Html.ActionLink("Regresar a Cotización", "Details", "Cotizacion", new { _id = Model.CotizacionId }, null)
 </div>
 
 @section Scripts {

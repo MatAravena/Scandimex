@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -20,149 +19,178 @@
 
         @Html.HiddenFor(model => model.CotizacionId)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.CodigoInterno)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.CodigoInterno)
-            @Html.ValidationMessageFor(model => model.CodigoInterno)
-        </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.FechaCotizacion)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.FechaCotizacion, string.Empty, new { @class = "datepicker" })
-            @Html.ValidationMessageFor(model => model.FechaCotizacion)
-        </div>
+        <table>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.CodigoInterno)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.CodigoInterno)
+                        @Html.ValidationMessageFor(model => model.CodigoInterno)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.FechaCotizacion)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.FechaCotizacion, "{0:MM/dd/yyyy}", new { @class = "datepicker" })
+                        @Html.ValidationMessageFor(model => model.FechaCotizacion)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.IdCliente)
+                    </div>
+                    <div id="DivCliente" class="form-group">
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.IdCliente, new SelectList(ViewBag.Clientes, "IdCliente", "NombreCompañia"))
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.IdCliente)
-        </div>
-        <div class="editor-field">
-            <div id="DivCliente" class="form-group">
-                <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.IdCliente, new SelectList(ViewBag.Clientes, "IdCliente", "NombreCompañia"))
+                            @Html.ValidationMessageFor(model => model.IdCliente, "Debe seleccionar algun Cliente.")
+                        </div>
+                    </div>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Requerido)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextAreaFor(model => model.Requerido)
+                        @Html.ValidationMessageFor(model => model.Requerido)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Descripcion)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextAreaFor(model => model.Descripcion)
+                        @Html.ValidationMessageFor(model => model.Descripcion)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.PlazoEntregaDesde)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.PlazoEntregaDesde, "{0:MM/dd/yyyy}", new { @class = "datepicker" })
+                        @Html.ValidationMessageFor(model => model.PlazoEntregaDesde)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.PlazoEntregaHasta)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.PlazoEntregaHasta, "{0:MM/dd/yyyy}", new { @class = "datepicker" })
+                        @Html.ValidationMessageFor(model => model.PlazoEntregaHasta)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Garantia)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Garantia)
+                        @Html.ValidationMessageFor(model => model.Garantia)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.CondicionesPago)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.CondicionesPago)
+                        @Html.ValidationMessageFor(model => model.CondicionesPago)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.PaisAbreviacion)
+                    </div>
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.PaisAbreviacion, new SelectList(ViewBag.Paises, "PaisAbreviacion", "PaisNombre"))
 
-                    @Html.ValidationMessageFor(model => model.IdCliente, "Debe seleccionar algun Cliente.")
-                </div>
-            </div>
-        </div>
+                        @Html.ValidationMessageFor(model => model.PaisAbreviacion, "Debe seleccionar algun pais.")
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.CiudadCodigo)
+                    </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Requerido)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Requerido)
-            @Html.ValidationMessageFor(model => model.Requerido)
-        </div>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CiudadCodigo, new SelectList(String.Empty, "CiudadCodigo", "CiudadNombre"), "-- Select --")
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Descripcion)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Descripcion)
-            @Html.ValidationMessageFor(model => model.Descripcion)
-        </div>
+                            @Html.ValidationMessageFor(model => model.CiudadCodigo, "Debe seleccionar alguna ciudad.")
+                            <span id="states-loading-progress" style="display: none;">Please wait..</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Direccion)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Direccion)
+                        @Html.ValidationMessageFor(model => model.Direccion)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Validez)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Validez)
+                        @Html.ValidationMessageFor(model => model.Validez)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.PlazoEntregaDesde)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.PlazoEntregaDesde, string.Empty, new { @class = "datepicker" })
-            @Html.ValidationMessageFor(model => model.PlazoEntregaDesde)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.PlazoEntregaHasta)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.PlazoEntregaHasta, string.Empty, new { @class = "datepicker" })
-            @Html.ValidationMessageFor(model => model.PlazoEntregaHasta)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Garantia)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Garantia)
-            @Html.ValidationMessageFor(model => model.Garantia)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.CondicionesPago)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.CondicionesPago)
-            @Html.ValidationMessageFor(model => model.CondicionesPago)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.PaisAbreviacion)
-        </div>
-        <div class="editor-field">
-            <div id="DivCodigoPais" class="form-group">
-                <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.PaisAbreviacion, new SelectList(ViewBag.Paises, "PaisAbreviacion", "PaisNombre"))
-
-                    @Html.ValidationMessageFor(model => model.PaisAbreviacion, "Debe seleccionar algun pais.")
-                </div>
-            </div>
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.CiudadCodigo)
-        </div>
-        <div class="editor-field">
-            <div class="form-group">
-                <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.CiudadCodigo, new SelectList(String.Empty, "CiudadCodigo", "CiudadNombre"), "-- Select --")
-
-                    @Html.ValidationMessageFor(model => model.CiudadCodigo, "Debe seleccionar alguna ciudad.")
-                    <span id="states-loading-progress" style="display: none;">Please wait..</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Direccion)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Direccion)
-            @Html.ValidationMessageFor(model => model.Direccion)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Validez)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Validez)
-            @Html.ValidationMessageFor(model => model.Validez)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Aceptacion)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Aceptacion)
-            @Html.ValidationMessageFor(model => model.Aceptacion)
-        </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Aceptacion)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Aceptacion)
+                        @Html.ValidationMessageFor(model => model.Aceptacion)
+                    </div>
+                </td>
+                <td></td>
+            </tr>
+        </table>
 
         <br />
+
 
         @if (Model.CotizacionId == 0)
         {
             int _id = Model.CotizacionId;
         }
 
-
         <div>
-
             <h3>Productos</h3>
             @Html.ActionLink("Nuevo producto", "Create", "CotizacionProducto", new { _id = Model.CotizacionId }, null)
             <br />
             @if (ViewBag.CotProductos != null)
-            {
+                {
                 <table>
                     <tr>
                         <td>@Html.Label("Tipo Producto")  &nbsp;&nbsp; </td>
@@ -204,7 +232,7 @@
             @Html.ActionLink("Nuevo servicio", "Create", "CotizacionServicio", new { _id = Model.CotizacionId }, null)
             <br />
             @if (ViewBag.CotServicios != null)
-            {
+                {
                 <table>
                     <tr>
                         <td>@Html.Label("Tipo Servicio")  &nbsp;&nbsp; </td>
@@ -247,7 +275,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Vuelta a la Lista de Cotizaciones", "Index")
 </div>
 
 @section Scripts {
@@ -267,7 +295,7 @@
                 var str;
                 $("#PaisAbreviacion option:selected").each(function () {
                     str = $(this).val();
-                    })
+                })
 
                 $.ajax({
                     cache: false,
@@ -293,6 +321,9 @@
             $("#PaisAbreviacion").change();
             $("#IdCliente").change();
             $('.FechaCotizacion').datepicker();
+            $('.PlazoEntregaDesde').datepicker();
+            $('.PlazoEntregaHasta').datepicker();
+
             $('.datepicker').datepicker();
             $("#datepicker").datepicker();
         });

@@ -73,6 +73,6 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { _id = Model.CotProdId, _IdCotizacion = CotizacionId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", "CotizacionProducto", new { _id = Model.CotProdId, _IdCotizacion = CotizacionId }, null) |
+    @Html.ActionLink("Regresar a Cotización", "Details", "Cotizacion", new { _id = Model.CotizacionId }, null)
 </p>

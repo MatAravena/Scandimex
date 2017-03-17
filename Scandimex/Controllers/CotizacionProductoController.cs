@@ -114,15 +114,16 @@ namespace Scandimex.Controllers
 
             CotizacionProducto _cot = _common.bd.CotizacionProducto.Find(_id);
 
-            Cotizaciones cot = _common.bd.Cotizacion.Find(_IdCotizacion);
-            ViewBag.CotizacionID = cot.CotizacionId;
-            ViewBag.CotizacionCodInter = cot.CodigoInterno;
+           
 
             if (_cot == null)
             {
                 return HttpNotFound();
             }
 
+ 			Cotizaciones cot = _common.bd.Cotizacion.Find(_IdCotizacion);
+            ViewBag.CotizacionID = cot.CotizacionId;
+            ViewBag.CotizacionCodInter = cot.CodigoInterno;
             ViewBag.TipoProductos = from tp in _common.bd.TipoProducto orderby tp.NombreTipoProducto ascending select tp;
 
             return View(_cot);
