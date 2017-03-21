@@ -12,6 +12,9 @@
 <fieldset>
     <legend>CotizacionProducto</legend>
 
+    @{ var CotizacionId = (Int32)ViewBag.CotizacionID;
+    }
+
     <div class="editor-label">
         @Html.LabelFor(model => model.CotizacionId, "Codigo Interno de Cotización")
     </div>

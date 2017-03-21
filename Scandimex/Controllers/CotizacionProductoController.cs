@@ -164,6 +164,10 @@ namespace Scandimex.Controllers
 
             CotizacionProducto _cot = _common.bd.CotizacionProducto.Find(_id);
 
+            Cotizaciones cot = _common.bd.Cotizacion.Find(_IdCotizacion);
+            ViewBag.CotizacionID = cot.CotizacionId;
+            ViewBag.CotizacionCodInter = cot.CodigoInterno;
+
             if (_cot == null)
             {
                 return HttpNotFound();
@@ -183,13 +187,21 @@ namespace Scandimex.Controllers
             try
             {
                 CotizacionProducto _cot = _common.bd.CotizacionProducto.Find(_id);
-                if (ModelState.IsValid)
+                if (_cot == null)
                 {
-                    Int32 id = _cot.CotizacionId;
+                    return HttpNotFound();
+                }
+
+                Int32 id = _cot.CotizacionId;
                     _common.bd.CotizacionProducto.Remove(_cot);
                     _common.bd.SaveChanges();
-                    return RedirectToAction("Details", "Cotizacion", new { _id = id });
-                }
+                    return RedirectToAction("Details", "Cotizacion", new { _id = _id });
+
+
+                var errors = ModelState
+                    .Where(x => x.Value.Errors.Count > 0)
+                    .Select(x => new { x.Key, x.Value.Errors })
+                    .ToArray();
 
                 return View();
             }
