@@ -1,0 +1,90 @@
+﻿@model Scandimex.Models.CotizacionProducto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Realmente desea eliminar éste producto de la cotización?</h3>
+<br />
+
+<fieldset>
+    <legend>CotizacionProducto</legend>
+
+    @{ var CotizacionId = (Int32)ViewBag.CotizacionID;
+    }
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.CotizacionId, "Codigo Interno de Cotización")
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.CotizacionId, new { style = "display:none;" })
+        @ViewBag.CotizacionCodInter
+    </div>
+    <br />
+
+    @*<div class="display-label">
+                @Html.LabelFor(model => model.CotizacionId)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.CotizacionId)
+        </div>*@
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.TipoProductos.NombreTipoProducto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TipoProductos.NombreTipoProducto)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.TipoProductoSub.NombreSubCategoria)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TipoProductoSub.NombreSubCategoria)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.SubCategoría)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SubCategoría)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Descripcion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descripcion)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.ValorUnitario)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ValorUnitario)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Cantidad)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cantidad)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.ValorFinal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ValorFinal)
+    </div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Regresar a Cotización", "Details", "Cotizacion", new { _id = Model.CotizacionId }, null)
+    </p>
+}

@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Scandimex.Models.PersonaContacto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Personas de Contacto</h2>
+
+@*Genre: @Html.DropDownList("Clientes", "All")*@
+
+<p>
+    @*@Html.ActionLink("Agregar nueva Persona", "Create", new { _IdCliente = @ViewBag.ClienteSeleccionado })*@
+    @Html.ActionLink("Agregar nueva Persona", "Create", new { _id = 0 })
+</p>
+@using (Html.BeginForm("Index", "PersonaContacto", FormMethod.Get))
+{
+    <p id="cmbClientes">
+        Client: @Html.DropDownList("cmbClientes", new SelectList(ViewBag.Clientes, "IdCliente", "NombreCompañia"), "-- Select a Client -- ")
+        &nbsp;&nbsp;
+        <input type="submit" value="Filter" />
+    </p>
+}
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Position)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LandLinePhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneMovil)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LandLinePhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneMovil)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { _Id = item.PersonaContactoId }) |
+                @Html.ActionLink("Details", "Details", new { _Id = item.PersonaContactoId }) |
+                @Html.ActionLink("Delete", "Delete", new { _Id = item.PersonaContactoId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/jscript">
+
+        $(function () {
+            $("#cmbClientes").change(function () {
+                var str;
+                $("#cmbClientes option:selected").each(function () {
+                    str = $(this).val();
+                    @*@ViewBag.ClienteSeleccionado = $(this).val();*@
+                })
+
+            });
+        });
+    </script>
+}

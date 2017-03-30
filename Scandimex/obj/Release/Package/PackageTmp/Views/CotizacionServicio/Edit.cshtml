@@ -1,0 +1,90 @@
+﻿@model Scandimex.Models.CotizacionServicio
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CotizacionServicio</legend>
+
+        @{ var CotizacionId = (Int32)ViewBag.CotizacionID;
+        }
+
+        @Html.HiddenFor(model => model.CotServId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CotizacionId, "Codigo Interno de Cotización")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.CotizacionId, new { style = "display:none;", Value = CotizacionId })
+            @ViewBag.CotizacionCodInter
+        </div>
+        <br />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TipoServicioCodigo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TipoServicioCodigo)
+            @Html.ValidationMessageFor(model => model.TipoServicioCodigo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SubCategoría)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SubCategoría)
+            @Html.ValidationMessageFor(model => model.SubCategoría)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Descripcion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Descripcion)
+            @Html.ValidationMessageFor(model => model.Descripcion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HorasServicio)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HorasServicio)
+            @Html.ValidationMessageFor(model => model.HorasServicio)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ValorHora)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ValorHora)
+            @Html.ValidationMessageFor(model => model.ValorHora)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ValorFinal)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ValorFinal)
+            @Html.ValidationMessageFor(model => model.ValorFinal)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+   @Html.ActionLink("Regresar a Cotización", "Details", "Cotizacion", new { _id = Model.CotizacionId }, null)
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

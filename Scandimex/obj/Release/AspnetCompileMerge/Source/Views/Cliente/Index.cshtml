@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Scandimex.Models.Clientes>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de Clientes</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreCompañia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CódigoPostal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LandLinePhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneMovil)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pais.PaisNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ciudad.CiudadNombre)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreCompañia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CódigoPostal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LandLinePhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneMovil)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pais.PaisNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ciudad.CiudadNombre)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { _Filtro = item.IdCliente }) |
+                @Html.ActionLink("Details", "Details", new { _Filtro = item.IdCliente }) |
+                @Html.ActionLink("Delete", "Delete", new { _Filtro = item.IdCliente })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,118 @@
+﻿@model Scandimex.Models.Clientes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+<br />
+<fieldset>
+    <legend>Cliente</legend>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.NombreCompañia)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NombreCompañia)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Rut)
+    </div>
+    <div class="editor-field">
+        @Html.DisplayFor(model => model.Rut)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Direccion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Direccion)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.CódigoPostal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CódigoPostal)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.LandLinePhone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LandLinePhone)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.PhoneMovil)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhoneMovil)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Fax)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fax)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Pais.PaisNombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pais.PaisNombre)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Ciudad.CiudadNombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Ciudad.CiudadNombre)
+    </div>
+
+    @if (ViewBag.Contactos != null)
+    {
+        <h3>Personas de Contacto</h3>
+        @Html.ActionLink("Agregar nueva", "Create", "PersonaContacto", new { _id = Model.IdCliente }, null)
+        <table>
+            <tr>
+                <td>@Html.Label("Nombre")  &nbsp;&nbsp; </td>
+                <td>@Html.Label("Apellidos")  &nbsp;&nbsp; </td>
+                <td>@Html.Label("Teléfono") &nbsp;&nbsp; </td>
+                <td>@Html.Label("Teléfono Movil") &nbsp;&nbsp; </td>
+                <td>@Html.Label("Email") &nbsp;&nbsp; </td>
+            </tr>
+
+            @foreach (var item in ViewBag.Contactos)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.LastName</td>
+                    <td>@item.LandLinePhone</td>
+                    <td>@item.PhoneMovil</td>
+                    <td>@item.Email</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", "PersonaContacto", new { _id = (Int32)@item.PersonaContactoId }, null) |
+                        @Html.ActionLink("Details", "Details", "PersonaContacto", new { _id = (Int32)@item.PersonaContactoId }, null) |
+                        @Html.ActionLink("Delete", "Delete", "PersonaContacto", new { _id = (Int32)@item.PersonaContactoId }, null)
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h3>Esta empresa no tiene personas de contacto asociada.</h3>
+        <h3>@*This company does not have persons in his contact list.*@</h3>
+    }
+
+    <br />
+     
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { _Filtro = Model.IdCliente }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

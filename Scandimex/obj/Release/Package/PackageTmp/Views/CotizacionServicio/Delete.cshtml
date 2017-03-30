@@ -1,0 +1,69 @@
+﻿@model Scandimex.Models.CotizacionServicio
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>CotizacionServicio</legend>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.CotizacionId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CotizacionId)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.TipoServicioCodigo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TipoServicioCodigo)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.SubCategoría)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SubCategoría)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Descripcion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descripcion)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.HorasServicio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HorasServicio)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.ValorHora)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ValorHora)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.ValorFinal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ValorFinal)
+    </div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Regresar a Cotización", "Details", "Cotizacion", new { _id = Model.CotizacionId }, null)
+    </p>
+}

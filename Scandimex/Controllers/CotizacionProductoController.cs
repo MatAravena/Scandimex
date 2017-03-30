@@ -114,14 +114,14 @@ namespace Scandimex.Controllers
 
             CotizacionProducto _cot = _common.bd.CotizacionProducto.Find(_id);
 
-           
+
 
             if (_cot == null)
             {
                 return HttpNotFound();
             }
 
- 			Cotizaciones cot = _common.bd.Cotizacion.Find(_IdCotizacion);
+            Cotizaciones cot = _common.bd.Cotizacion.Find(_IdCotizacion);
             ViewBag.CotizacionID = cot.CotizacionId;
             ViewBag.CotizacionCodInter = cot.CodigoInterno;
             ViewBag.TipoProductos = from tp in _common.bd.TipoProducto orderby tp.NombreTipoProducto ascending select tp;
@@ -193,17 +193,16 @@ namespace Scandimex.Controllers
                 }
 
                 Int32 id = _cot.CotizacionId;
-                    _common.bd.CotizacionProducto.Remove(_cot);
-                    _common.bd.SaveChanges();
-                    return RedirectToAction("Details", "Cotizacion", new { _id = _id });
+                _common.bd.CotizacionProducto.Remove(_cot);
+                _common.bd.SaveChanges();
+                return RedirectToAction("Details", "Cotizacion", new { _id = _id });
 
 
-                var errors = ModelState
-                    .Where(x => x.Value.Errors.Count > 0)
-                    .Select(x => new { x.Key, x.Value.Errors })
-                    .ToArray();
+                //var errors = ModelState
+                //    .Where(x => x.Value.Errors.Count > 0)
+                //    .Select(x => new { x.Key, x.Value.Errors })
+                //    .ToArray();
 
-                return View();
             }
             catch (Exception ex)
             {

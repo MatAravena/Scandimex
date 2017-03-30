@@ -1,0 +1,234 @@
+﻿@model Scandimex.Models.Cotizaciones
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<fieldset>
+    <legend>Cotizaciones</legend>
+
+    <div class="display-label" style="visibility:hidden ">
+        @Html.LabelFor(model => model.CotizacionId)
+    </div>
+    <table>
+        <tr>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.CodigoInterno)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.CodigoInterno)
+                </div>
+            </td>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.FechaCotizacion)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.FechaCotizacion)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.IdCliente)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Cliente.NombreCompañia)
+                </div>
+            </td>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.Requerido)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Requerido)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.Descripcion)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Descripcion)
+                </div>
+            </td>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.PlazoEntregaDesde)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.PlazoEntregaDesde)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.PlazoEntregaHasta)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.PlazoEntregaHasta)
+                </div>
+            </td>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.Garantia)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Garantia)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.CondicionesPago)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.CondicionesPago)
+                </div>
+            </td>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.PaisAbreviacion)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Pais.PaisNombre)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.Ciudad.CiudadNombre)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.CiudadCodigo)
+                </div>
+            </td>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.Direccion)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Direccion)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.Validez)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Validez)
+                </div>
+            </td>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.Aceptacion)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Aceptacion)
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    @if (Model.CotizacionId == 0)
+    {
+        int _id = Model.CotizacionId;
+    }
+
+    <div>
+        <h3>Productos</h3>
+        @Html.ActionLink("Nuevo producto", "Create", "CotizacionProducto", new { _id = Model.CotizacionId }, null)
+        <br />
+        @if (ViewBag.CotProductos != null)
+        {
+            <table>
+                <tr>
+                    <td>@Html.Label("Tipo Producto")  &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Sub Producto")  &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Sub Categoría") &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Descripción") &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Valor Unitario") &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Cantidad") &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Total") &nbsp;&nbsp; </td>
+                </tr>
+
+                @foreach (var item in ViewBag.CotProductos)
+                {
+                    <tr>
+                        <td>@item.TipoProductos.NombreTipoProducto</td>
+                        <td>@item.TipoProductoSub.NombreSubCategoria</td>
+                        <td>@item.SubCategoría</td>
+                        <td>@item.Descripcion</td>
+                        <td>@item.ValorUnitario</td>
+                        <td>@item.Cantidad</td>
+                        <td>@item.ValorFinal</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", "CotizacionProducto", new { _id = (Int32)@item.CotProdId, _IdCotizacion = Model.CotizacionId }, null) |
+                            @Html.ActionLink("Details", "Details", "CotizacionProducto", new { _id = (Int32)@item.CotProdId, _IdCotizacion = Model.CotizacionId }, null) |
+                            @Html.ActionLink("Delete", "Delete", "CotizacionProducto", new { _id = (Int32)@item.CotProdId, _IdCotizacion = Model.CotizacionId }, null)
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <h3>Esta cotización no tiene productos asociados.</h3>
+        }
+
+    </div>
+    <div>
+        <h3>Servicios</h3>
+        @Html.ActionLink("Nuevo servicio", "Create", "CotizacionServicio", new { _id = Model.CotizacionId }, null)
+        <br />
+        @if (ViewBag.CotServicios != null)
+        {
+            <table>
+                <tr>
+                    <td>@Html.Label("Tipo Servicio")  &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Sub Categoría")  &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Descripción") &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Horas de Servicio") &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Valor Hora") &nbsp;&nbsp; </td>
+                    <td>@Html.Label("Total") &nbsp;&nbsp; </td>
+                </tr>
+
+                @foreach (var item in ViewBag.CotServicios)
+                {
+                    <tr>
+                        <td>@item.TipoServicio.NombreTipoServicio</td>
+                        <td>@item.SubCategoría</td>
+                        <td>@item.Descripcion</td>
+                        <td>@item.HorasServicio</td>
+                        <td>@item.ValorHora</td>
+                        <td>@item.ValorFinal</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", "CotizacionServicio", new { _id = (Int32)@item.CotServId, _IdCotizacion = Model.CotizacionId }, null) |
+                            @Html.ActionLink("Details", "Details", "CotizacionServicio", new { _id = (Int32)@item.CotServId, _IdCotizacion = Model.CotizacionId }, null) |
+                            @Html.ActionLink("Delete", "Delete", "CotizacionServicio", new { _id = (Int32)@item.CotServId, _IdCotizacion = Model.CotizacionId }, null)
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <h3>Esta cotización no tiene servicios asociados.</h3>
+        }
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { _id = Model.CotizacionId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

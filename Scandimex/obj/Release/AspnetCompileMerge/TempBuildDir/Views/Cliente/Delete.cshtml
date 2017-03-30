@@ -1,0 +1,91 @@
+﻿@model Scandimex.Models.Clientes
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<br />
+<fieldset>
+    <legend>Client</legend>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.NombreCompañia, "Company Name")
+    </div>
+
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NombreCompañia)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Rut)
+    </div>
+    <div class="display-field">
+        @*@if (Model != null && !String.IsNullOrEmpty(Model.Rut))
+        {*@
+             @Html.DisplayFor(model => model.Rut)
+        @*}
+        else
+        {
+            @Html.Label("")
+        }*@
+    </div> 
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Direccion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Direccion)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.CódigoPostal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CódigoPostal)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.LandLinePhone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LandLinePhone)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.PhoneMovil)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhoneMovil)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Fax)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fax)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Pais .PaisNombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pais.PaisNombre)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Ciudad.CiudadNombre )
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Ciudad.CiudadNombre)
+    </div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

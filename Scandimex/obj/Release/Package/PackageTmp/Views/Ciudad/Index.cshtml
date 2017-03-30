@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Scandimex.Models.Ciudad>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de Ciudades</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+
+<p>
+    @using (Html.BeginForm("Index", "Ciudad", FormMethod.Get))
+    {
+    <p>
+        Ciudad: @Html.TextBox("_Filtro")
+        <input type="submit" value="Search" />
+    </p>
+    }
+    </p>
+
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CiudadNombre)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pais.PaisNombre)
+            </th>
+            <th>
+
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CiudadNombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pais.PaisNombre)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CiudadCodigo }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CiudadCodigo }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CiudadCodigo })
+                </td>
+            </tr>
+        }
+
+    </table>

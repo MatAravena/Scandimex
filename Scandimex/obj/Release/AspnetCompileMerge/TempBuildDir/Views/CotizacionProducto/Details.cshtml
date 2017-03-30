@@ -1,0 +1,78 @@
+﻿@model Scandimex.Models.CotizacionProducto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<fieldset>
+    <legend>CotizacionProducto</legend>
+
+    @{ var CotizacionId = (Int32)ViewBag.CotizacionID;
+    }
+
+    @Html.HiddenFor(model => model.CotProdId)
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.CotizacionId, "Codigo Interno de Cotización")
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.CotizacionId, new { style = "display:none;", Value = CotizacionId })
+        @ViewBag.CotizacionCodInter
+    </div>
+    <br />
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.TipoProductoCodigo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TipoProductoCodigo)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.SubProductoCodigo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SubProductoCodigo)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.SubCategoría)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SubCategoría)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Descripcion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descripcion)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.ValorUnitario)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ValorUnitario)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Cantidad)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cantidad)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.ValorFinal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ValorFinal)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", "CotizacionProducto", new { _id = Model.CotProdId, _IdCotizacion = CotizacionId }, null) |
+    @Html.ActionLink("Regresar a Cotización", "Details", "Cotizacion", new { _id = Model.CotizacionId }, null)
+</p>

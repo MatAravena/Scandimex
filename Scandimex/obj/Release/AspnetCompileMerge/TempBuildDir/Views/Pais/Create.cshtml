@@ -1,0 +1,52 @@
+﻿@model Scandimex.Models.Pais
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Agregar Nuevo</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Pais</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PaisAbreviacion,"Abreviación")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PaisAbreviacion)
+            @Html.ValidationMessageFor(model => model.PaisAbreviacion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PaisNombre, "Nombre")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PaisNombre)
+            @Html.ValidationMessageFor(model => model.PaisNombre)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PaisOrden, "Orden")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PaisOrden)
+            @Html.ValidationMessageFor(model => model.PaisOrden)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

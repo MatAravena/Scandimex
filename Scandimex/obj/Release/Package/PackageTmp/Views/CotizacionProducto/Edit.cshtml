@@ -1,0 +1,171 @@
+﻿@model Scandimex.Models.CotizacionProducto
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar</h2>
+
+@*@{ var CotizacionId = (Int32)ViewBag.CotizacionID;
+    }*@
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CotizacionProducto</legend>
+
+        @{ var CotizacionId = (Int32)ViewBag.CotizacionID;
+        }
+
+        @Html.HiddenFor(model => model.CotProdId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CotizacionId, "Codigo Interno de Cotización")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.CotizacionId, new { style = "display:none;", Value = CotizacionId })
+            @ViewBag.CotizacionCodInter
+        </div>
+        <br />
+
+        @*<div class="editor-label">
+                @Html.LabelFor(model => model.CotizacionId)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CotizacionId)
+                @Html.ValidationMessageFor(model => model.CotizacionId)
+            </div>*@
+
+        <div id="DivTipoProducto" class="form-group">
+            <div class="col-md-10">
+
+                @Html.LabelFor(model => model.TipoProductoCodigo, "Seleccione tipo de producto", new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.TipoProductoCodigo, new SelectList(ViewBag.TipoProductos, "TipoProductoCodigo", "NombreTipoProducto"))
+
+                @Html.ValidationMessageFor(model => model.TipoProductoCodigo, "Debe seleccionar algun tipo de producto.")
+            </div>
+        </div>
+
+        @*<div class="editor-label">
+                @Html.LabelFor(model => model.TipoProductoCodigo)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.TipoProductoCodigo)
+                @Html.ValidationMessageFor(model => model.TipoProductoCodigo)
+            </div>*@
+
+        <div id="DivSubTipoProducto" class="form-group">
+            <div class="col-md-10">
+
+                @Html.LabelFor(model => model.SubProductoCodigo, "Seleccione sub tipo de producto", new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.SubProductoCodigo, new SelectList(String.Empty, "SubProductoCodigo", "NombreSubCategoria"))
+
+                @Html.ValidationMessageFor(model => model.SubProductoCodigo, "Debe seleccionar algun sub tipo de producto.")
+            </div>
+        </div>
+        @*<div class="editor-label">
+                @Html.LabelFor(model => model.SubProductoCodigo)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SubProductoCodigo)
+                @Html.ValidationMessageFor(model => model.SubProductoCodigo)
+            </div>*@
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SubCategoría)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SubCategoría)
+            @Html.ValidationMessageFor(model => model.SubCategoría)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Descripcion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Descripcion)
+            @Html.ValidationMessageFor(model => model.Descripcion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ValorUnitario)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ValorUnitario)
+            @Html.ValidationMessageFor(model => model.ValorUnitario)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Cantidad)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Cantidad)
+            @Html.ValidationMessageFor(model => model.Cantidad)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ValorFinal)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ValorFinal)
+            @Html.ValidationMessageFor(model => model.ValorFinal)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+
+    </fieldset>
+            }
+
+<div>
+    @Html.ActionLink("Regresar a Cotización", "Details", "Cotizacion", new { _id = Model.CotizacionId }, null)
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/jscript">
+
+        $(function () {
+            $("#TipoProductoCodigo").change(function () {
+                var selectedItem = $(this).val();
+                var ddlCitys = $("#SubProductoCodigo");
+                var statesProgress = $("#states-loading-progress");
+                statesProgress.show();
+
+                var str;
+                $("#TipoProductoCodigo option:selected").each(function () {
+                    str = $(this).val();
+                })
+
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "@(Url.Action("ObtenerSubTipoProducto"))",
+                    data: { "_CodigoTipoProducto": str },
+                    success: function (data) {
+                        ddlCitys.html('');
+
+                        $.each(data, function (id, option) {
+                            ddlCitys.append($('<option></option>').val(option.SubProductoCodigo).html(option.NombreSubCategoria));
+                        });
+
+                        statesProgress.hide();
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert('Failed to retrieve sub tipo productos.');
+                        statesProgress.hide();
+                    }
+                });
+            });
+
+            //$("#CodigoPais").cli (function () {
+            $("#TipoProductoCodigo").change();
+
+        });
+    </script>
+
+}

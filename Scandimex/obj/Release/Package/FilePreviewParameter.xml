@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="Default Web Site/Scandimex" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Matute'sPc\\Documents\\Pegas\\Scandimex\\Scandimex\ Project\\Scandimex\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Matute'sPc\\Documents\\Pegas\\Scandimex\\Scandimex\ Project\\Scandimex\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=MATUTEPC\MARAVENABD;Initial Catalog=Scandimex;User ID=sa;Password=sa" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Matute'sPc\\Documents\\Pegas\\Scandimex\\Scandimex\ Project\\Scandimex\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="ScandimexContexto-Web.config Connection String" description="" value="Data Source=MATUTEPC\MARAVENABD;Initial Catalog=Scandimex;User ID=sa;Password=sa" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Matute'sPc\\Documents\\Pegas\\Scandimex\\Scandimex\ Project\\Scandimex\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ScandimexContexto']/@connectionString" />
+  </parameter>
+</parameters>

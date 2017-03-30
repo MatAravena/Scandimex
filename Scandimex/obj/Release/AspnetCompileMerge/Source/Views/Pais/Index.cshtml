@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Scandimex.Models.Pais>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de Paises</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p> 
+    @using (Html.BeginForm("Index", "Pais", FormMethod.Get))
+    {
+    <p>
+        País: @Html.TextBox("_Filtro")
+        <input type="submit" value="Search" />
+    </p>
+    } 
+        <table>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PaisNombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PaisOrden)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PaisNombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PaisOrden)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { _CodigoAbreviacion = item.PaisAbreviacion }) |
+                        @Html.ActionLink("Details", "Details", new { _CodigoAbreviacion = item.PaisAbreviacion }) |
+                        @Html.ActionLink("Delete", "Delete", new { _CodigoAbreviacion = item.PaisAbreviacion })
+                    </td>
+                </tr>
+            }
+
+        </table> 

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ScandimexContexto-Web.config Connection String" description="ScandimexContexto Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="Data Source=MATUTEPC\MARAVENABD;Initial Catalog=Scandimex;integrated security=true;user id=sa;password=sa;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Matute'sPc\\Documents\\Pegas\\Scandimex\\Scandimex\ Project\\Scandimex\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ScandimexContexto']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="DefaultConnection_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Matute'sPc\\Documents\\Pegas\\Scandimex\\Scandimex\ Project\\Scandimex\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="ScandimexContexto_DatabasePublish-Web.config Connection String" description="ScandimexContexto_DatabasePublish Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="ScandimexContexto_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Matute'sPc\\Documents\\Pegas\\Scandimex\\Scandimex\ Project\\Scandimex\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ScandimexContexto_DatabasePublish']/@connectionString" />
+  </parameter>
+</parameters>

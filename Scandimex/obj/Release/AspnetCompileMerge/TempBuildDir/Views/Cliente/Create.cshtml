@@ -1,0 +1,173 @@
+﻿@model Scandimex.Models.Clientes
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Crear nuevo cliente</h2>
+
+@using (Html.BeginForm())
+{
+    <form>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        @*<legend>Cliente</legend>*@
+        <noscript>
+            <div>
+                <h2>This site requires JavaScript</h2>
+            </div>
+        </noscript>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NombreCompañia)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NombreCompañia)
+            @Html.ValidationMessageFor(model => model.NombreCompañia, "Debe ingresar nombre de la nueva empresa.")
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Rut)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Rut)
+            @Html.ValidationMessageFor(model => model.Rut, "Debe ingresar Rut de la nueva empresa.")
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Direccion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Direccion)
+            @Html.ValidationMessageFor(model => model.Direccion, "Debe ingresar dirección de la nueva empresa.")
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CódigoPostal, "Postal Code")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CódigoPostal)
+            @Html.ValidationMessageFor(model => model.CódigoPostal)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LandLinePhone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LandLinePhone)
+            @Html.ValidationMessageFor(model => model.LandLinePhone)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PhoneMovil)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PhoneMovil)
+            @Html.ValidationMessageFor(model => model.PhoneMovil)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fax)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fax)
+            @Html.ValidationMessageFor(model => model.Fax)
+        </div>
+
+        @* Paises y Ciudades *@
+        <div id="DivCodigoPais" class="form-group">
+            <div class="col-md-10">
+
+                @Html.LabelFor(model => model.PaisAbreviacion, "Select country", new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.PaisAbreviacion, new SelectList(ViewBag.Paises, "PaisAbreviacion", "PaisNombre"))
+
+                @Html.ValidationMessageFor(model => model.PaisAbreviacion, "Debe seleccionar algun pais.")
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.CiudadCodigo, "Select City", new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.CiudadCodigo, new SelectList(String.Empty, "CiudadCodigo", "CiudadNombre"), "-- Select --")
+
+                @Html.ValidationMessageFor(model => model.CiudadCodigo, "Debe seleccionar alguna ciudad.")
+
+                <span id="states-loading-progress" >Please wait..</span>
+            </div>
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+
+
+        </p>
+
+    </form>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/jscript">
+
+        $(function () {
+            $("#PaisAbreviacion").change(function () {
+                var selectedItem = $(this).val();
+                var ddlCitys = $("#CiudadCodigo");
+                var statesProgress = $("#states-loading-progress");
+                statesProgress.show();
+
+                var str;
+                $("#PaisAbreviacion option:selected").each(function () {
+                    str = $(this).val();
+                })
+
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "@(Url.Action("ObtenerCiudad"))",
+                    data: { "_CodigoPais": str },
+                    success: function (data) {
+                        ddlCitys.html('');
+
+                        $.each(data, function (id, option) {
+                            ddlCitys.append($('<option></option>').val(option.CiudadCodigo).html(option.CiudadNombre));
+                        });
+
+                        statesProgress.hide();
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert('Failed to retrieve states.');
+                        statesProgress.hide();
+                    }
+                });
+            });
+
+            //$("#CodigoPais").cli (function () {
+            $("#PaisAbreviacion").change();
+
+            //};
+
+        });
+
+        //$('#CodigoPais').change(function () {
+        //    var URL = $('#PaisCodigoSelect').data('stateListAction');
+        //    $.getJSON(URL + '/' + $('#PaisCodigoSelect').val(), function (data) {
+        //        var items = '<option>Select a State</option>';
+        //        $.each(data, function (i, state) {
+        //            items += "<option value='" + state.Value + "'>" + state.Text + "</option>";
+        //            // state.Value cannot contain ' character. We are OK because state.Value = cnt++;
+        //        });
+        //        $('#StatesID').html(items);
+        //        $('#StatesDivID').show();
+
+        //    });
+        //});
+
+    </script>
+}

@@ -1,0 +1,64 @@
+﻿@model Scandimex.Models.PersonaContacto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+<br />
+<fieldset>
+    <legend>PersonaContacto</legend>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Position)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Position)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.LandLinePhone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LandLinePhone)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.PhoneMovil)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhoneMovil)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Cliente.NombreCompañia)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cliente.NombreCompañia)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { _id = Model.PersonaContactoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
