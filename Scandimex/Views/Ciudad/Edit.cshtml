@@ -24,7 +24,8 @@
             @Html.LabelFor(model => model.PaisAbreviacion, "País", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
 
-                @Html.DropDownListFor(model => model.PaisAbreviacion, new SelectList(ViewBag.Paises, "PaisAbreviacion", "PaisNombre"), new { disabled = "disabled" })
+               @* @Html.DropDownListFor(model => model.PaisAbreviacion, new SelectList(ViewBag.Paises, "PaisAbreviacion", "PaisNombre"), new { disabled = "disabled" })*@
+                @Html.DropDownListFor(model => model.PaisAbreviacion, new SelectList(ViewBag.Paises, "PaisAbreviacion", "PaisNombre"))
                 @Html.ValidationMessageFor(model => model.PaisAbreviacion)
             </div>
         </div>

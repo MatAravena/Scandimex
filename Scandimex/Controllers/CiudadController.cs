@@ -123,9 +123,16 @@ namespace Scandimex.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    _common.bd.Entry(_city).State = EntityState.Modified;
-                    _common.bd.SaveChanges();
-                    return RedirectToAction("Index");
+                    Ciudad _ciud = _common.bd.Ciudades.Find(id);
+                    if (_ciud != null)
+                    {
+                        _ciud.CiudadNombre = _city.CiudadNombre;
+                        _ciud.PaisAbreviacion = _city.PaisAbreviacion;
+
+                        _common.bd.Entry(_ciud).State = EntityState.Modified;
+                        _common.bd.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
                 }
 
                 return View(_city);
