@@ -24,13 +24,13 @@ namespace Scandimex.Models
 
 
         [StringLength(70, MinimumLength = 3)]
-        [RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ' ,.]*$")]
+        //[RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ' ,.]*$")]
         [Required]
         [Display(Name = "Sub Categoría")]
         public String SubCategoría { get; set; }
 
         [StringLength(5000, MinimumLength = 3)]
-        [RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ' ,.]*$")]
+        //[RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ' ,.]*$")]
         [Required]
         [Display(Name = "Descripción")]
         public String Descripcion { get; set; }

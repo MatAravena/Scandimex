@@ -200,7 +200,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PaisController.cs" />
     <Compile Include="Controllers\PersonaContactoController.cs" />
-    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
+    <Compile Include="fonts\Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -242,6 +242,7 @@
     <Compile Include="Models\Pais.cs" />
     <Compile Include="Models\PersonaContacto.cs" />
     <Compile Include="Models\ScandimexContexto.cs" />
+    <Compile Include="Models\Sucursal.cs" />
     <Compile Include="Models\TipoPago.cs" />
     <Compile Include="Models\TipoProductos.cs" />
     <Compile Include="Models\TipoProductoSub.cs" />

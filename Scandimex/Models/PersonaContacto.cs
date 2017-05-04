@@ -24,7 +24,7 @@ namespace Scandimex.Models
 
 
         [Display(Name = "Posición")]
-        [RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ' ,.]*$")]
+        //[RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ' ,.]*$")]
         public String Position { get; set; }
 
         [DataType(DataType.PhoneNumber)]
@@ -37,7 +37,7 @@ namespace Scandimex.Models
 
         [Display(Name = "Email")]
         [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [EmailAddress(ErrorMessage = "Dirección Email inválida.")]
         public String Email { get; set; }
 
         public int IdCliente { get; set; }

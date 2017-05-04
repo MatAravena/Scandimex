@@ -12,7 +12,7 @@ namespace Scandimex.Models
         public int TipoServicioCodigo { get; set; }
 
         [StringLength(70, MinimumLength = 3)]
-        [RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ' ,.]*$")]
+        //[RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ' ,.]*$")]
         [Required]
         [Display(Name = "Tipo Servicio")]
         public String NombreTipoServicio { get; set; }

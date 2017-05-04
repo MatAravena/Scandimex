@@ -31,13 +31,11 @@ namespace Scandimex.Models
 
 
         [StringLength(5000, MinimumLength = 3)]
-        [RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ' ,.]*$")]
         [Display(Name = "Requerimiento")]
         public String Requerido { get; set; }
 
 
         [StringLength(5000, MinimumLength = 3)]
-        [RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ' ,.]*$")]
         [Display(Name = "Descripción")]
         public String Descripcion { get; set; }
 
@@ -67,12 +65,10 @@ namespace Scandimex.Models
 
         [Display(Name = "Garantía")]
         [StringLength(500, MinimumLength = 3)]
-        [RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ' ,.]*$")]
         public String Garantia { get; set; }
 
         [Display(Name = "Condiciones de Pago")]
         [StringLength(500, MinimumLength = 3)]
-        [RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ' ,.]*$")]
         public String CondicionesPago { get; set; }
 
 
@@ -89,12 +85,12 @@ namespace Scandimex.Models
 
 
         [StringLength(500, MinimumLength = 3)]
-        [RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ' ,.]*$")]
+        //[RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ' ,.]*$")]
         [Display(Name = "Dirección")]
         public String Direccion { get; set; }
 
         [StringLength(50, MinimumLength = 3)]
-        [RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ' ,.]*$")]
+        //[RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ' ,.]*$")]
         [Display(Name = "Validez")]
         public String Validez { get; set; }
 

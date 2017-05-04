@@ -100,7 +100,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/14/2017 00:52:36</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.Web.BrowserLink.12.0.dll">
-      <publishTime>03/11/2015 12:21:38</publishTime>
+      <publishTime>11/03/2015 12:21:38</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>03/14/2017 00:52:36</publishTime>
@@ -124,10 +124,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/14/2017 00:52:36</publishTime>
     </File>
     <File Include="bin/Scandimex.dll">
-      <publishTime>04/11/2017 18:20:40</publishTime>
+      <publishTime>04/11/2017 18:34:38</publishTime>
     </File>
     <File Include="bin/Scandimex.pdb">
-      <publishTime>04/11/2017 18:20:40</publishTime>
+      <publishTime>04/11/2017 18:34:38</publishTime>
     </File>
     <File Include="bin/stdole.dll">
       <publishTime>07/07/2015 00:51:38</publishTime>
@@ -811,7 +811,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/11/2017 18:16:22</publishTime>
     </File>
     <File Include="Views/Ciudad/Index.cshtml">
-      <publishTime>04/01/2017 17:13:20</publishTime>
+      <publishTime>01/04/2017 17:13:20</publishTime>
     </File>
     <File Include="Views/Cliente/Create.cshtml">
       <publishTime>03/14/2017 01:02:14</publishTime>

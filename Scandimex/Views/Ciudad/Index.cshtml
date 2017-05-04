@@ -9,16 +9,14 @@
 <p>
     @Html.ActionLink("Crear nuevo", "Create")
 </p>
-
-<p>
+ 
     @using (Html.BeginForm("Index", "Ciudad", FormMethod.Get))
     {
     <p>
         Ciudad: @Html.TextBox("_Filtro")
         <input type="submit" value="Search" />
     </p>
-    }
-</p>
+    } 
 
     <table>
         <tr>
@@ -44,9 +42,9 @@
                     @Html.DisplayFor(modelItem => item.Pais.PaisNombre)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CiudadCodigo }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.CiudadCodigo }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CiudadCodigo })
+                    @Html.ActionLink("Edi", "Edit", new { id = item.CiudadCodigo }) |
+                    @Html.ActionLink("Det", "Details", new { id = item.CiudadCodigo }) |
+                    @Html.ActionLink("Del", "Delete", new { id = item.CiudadCodigo })
                 </td>
             </tr>
         }

@@ -13,7 +13,7 @@ namespace Scandimex.Models
         public int IdCliente { get; set; }
 
         [StringLength(70, MinimumLength = 3)]
-        [RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ' ,.]*$")]
+        //[RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ' ,.]*$")]
         [Required]
         [Display(Name = "Nombre Compañía")]
         public String NombreCompañia { get; set; }
