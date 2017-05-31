@@ -17,7 +17,7 @@
             @Html.ValidationSummary(true)
 
             <div class="form-group">
-                @Html.LabelFor(model => model.CiudadNombre, "City name", new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.CiudadNombre, "Nombre Ciudad", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.CiudadNombre)
                     @Html.ValidationMessageFor(model => model.CiudadNombre)
@@ -28,7 +28,7 @@
                 @*@Html.LabelFor(model => model.CodigoPais, "Selected country", new { @class = "control-label col-md-2" })*@
                 <div class="col-md-10">
 
-                    @Html.LabelFor(model => model.PaisAbreviacion, "Select a country", new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.PaisAbreviacion, "Seleccionar País", new { @class = "control-label col-md-2" })
 
                     @*<select id="CodigoPais" name="CodigoPais">
                             @foreach (Scandimex.Models.Ciudad _ciu in ViewBag.Paises )
@@ -44,12 +44,7 @@
                     @Html.ValidationMessageFor(model => model.PaisAbreviacion)
                 </div>
             </div>
-
-
-
-
         </div>
-
 
         @*<br /><br />
             <div class="editor-label">
@@ -69,13 +64,13 @@
             </div>*@
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Crear" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver", "Index")
 </div>
 
 @section Scripts {

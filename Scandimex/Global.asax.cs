@@ -18,7 +18,8 @@ namespace Scandimex
         public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
             var value = bindingContext.ValueProvider.GetValue(bindingContext.ModelName);
-            CultureInfo culture = new CultureInfo("en-GB"); // dd/MM/yyyy
+            //CultureInfo culture = new CultureInfo("en-GB"); // dd/MM/yyyy
+            CultureInfo culture = new CultureInfo("es-CL"); // dd/MM/yyyy
 
             DateTime date = DateTime.Now;
             if (!DateTime.TryParse(value.AttemptedValue, out  date))

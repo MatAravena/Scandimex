@@ -80,7 +80,7 @@
         <div id="DivCodigoPais" class="form-group">
             <div class="col-md-10">
 
-                @Html.LabelFor(model => model.PaisAbreviacion, "Select country", new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.PaisAbreviacion, "Seleccionar País", new { @class = "control-label col-md-2" })
                 @Html.DropDownListFor(model => model.PaisAbreviacion, new SelectList(ViewBag.Paises, "PaisAbreviacion", "PaisNombre"))
 
                 @Html.ValidationMessageFor(model => model.PaisAbreviacion, "Debe seleccionar algun pais.")
@@ -89,8 +89,8 @@
 
         <div class="form-group">
             <div class="col-md-10">
-                @Html.LabelFor(model => model.CiudadCodigo, "Select City", new { @class = "control-label col-md-2" })
-                @Html.DropDownListFor(model => model.CiudadCodigo, new SelectList(String.Empty, "CiudadCodigo", "CiudadNombre"), "-- Select --")
+                @Html.LabelFor(model => model.CiudadCodigo, "Seleccionar Ciudad", new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.CiudadCodigo, new SelectList(String.Empty, "CiudadCodigo", "CiudadNombre"), "-- Seleccionar --")
 
                 @Html.ValidationMessageFor(model => model.CiudadCodigo, "Debe seleccionar alguna ciudad.")
 
@@ -98,7 +98,7 @@
             </div>
         </div>
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Crear" />
 
 
         </p>
@@ -107,7 +107,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver", "Index")
 </div>
 
 @section Scripts {
@@ -147,27 +147,13 @@
                     }
                 });
             });
-
-            //$("#CodigoPais").cli (function () {
+             
             $("#PaisAbreviacion").change();
 
             //};
 
         });
-
-        //$('#CodigoPais').change(function () {
-        //    var URL = $('#PaisCodigoSelect').data('stateListAction');
-        //    $.getJSON(URL + '/' + $('#PaisCodigoSelect').val(), function (data) {
-        //        var items = '<option>Select a State</option>';
-        //        $.each(data, function (i, state) {
-        //            items += "<option value='" + state.Value + "'>" + state.Text + "</option>";
-        //            // state.Value cannot contain ' character. We are OK because state.Value = cnt++;
-        //        });
-        //        $('#StatesID').html(items);
-        //        $('#StatesDivID').show();
-
-        //    });
-        //});
+         
 
     </script>
 }

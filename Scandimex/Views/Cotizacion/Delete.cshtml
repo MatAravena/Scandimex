@@ -57,6 +57,26 @@
                     @Html.DisplayFor(model => model.Descripcion)
                 </div>
             </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.MontoCotizacion)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.MontoCotizacion)
+                </div>
+            </td>
+            <td>
+                <div class="display-label">
+                    @Html.LabelFor(model => model.MontoComprado)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.MontoComprado)
+                </div>
+            </td>
+        </tr>
+        <tr>
             <td>
                 <div class="display-label">
                     @Html.LabelFor(model => model.PlazoEntregaDesde)
@@ -65,8 +85,6 @@
                     @Html.DisplayFor(model => model.PlazoEntregaDesde)
                 </div>
             </td>
-        </tr>
-        <tr>
             <td>
                 <div class="display-label">
                     @Html.LabelFor(model => model.PlazoEntregaHasta)
@@ -75,6 +93,8 @@
                     @Html.DisplayFor(model => model.PlazoEntregaHasta, "dd/MM/yyyy")
                 </div>
             </td>
+        </tr>
+        <tr>
             <td>
                 <div class="display-label">
                     @Html.LabelFor(model => model.Garantia)
@@ -83,8 +103,6 @@
                     @Html.DisplayFor(model => model.Garantia)
                 </div>
             </td>
-        </tr>
-        <tr>
             <td>
                 <div class="display-label">
                     @Html.LabelFor(model => model.CondicionesPago)
@@ -93,6 +111,8 @@
                     @Html.DisplayFor(model => model.CondicionesPago)
                 </div>
             </td>
+        </tr>
+        <tr>
             <td>
                 <div class="display-label">
                     @Html.LabelFor(model => model.Pais.PaisNombre)
@@ -101,8 +121,6 @@
                     @Html.DisplayFor(model => model.Pais.PaisNombre)
                 </div>
             </td>
-        </tr>
-        <tr>
             <td>
                 <div class="display-label">
                     @Html.LabelFor(model => model.Ciudad.CiudadNombre)
@@ -111,6 +129,9 @@
                     @Html.DisplayFor(model => model.Ciudad.CiudadNombre)
                 </div>
             </td>
+        </tr>
+        <tr>
+
             <td>
                 <div class="display-label">
                     @Html.LabelFor(model => model.Direccion)
@@ -119,8 +140,6 @@
                     @Html.DisplayFor(model => model.Direccion)
                 </div>
             </td>
-        </tr>
-        <tr>
             <td>
                 <div class="display-label">
                     @Html.LabelFor(model => model.Validez)
@@ -129,6 +148,8 @@
                     @Html.DisplayFor(model => model.Validez)
                 </div>
             </td>
+        </tr>
+        <tr>
             <td>
                 <div class="display-label">
                     @Html.LabelFor(model => model.Aceptacion)
@@ -177,7 +198,7 @@
                         <td>@item.Cantidad</td>
                         <td>@item.ValorFinal</td>
                         <td>
-                            @Html.ActionLink("Edi", "Edit", "CotizacionProducto", new { _id = (Int32)@item.CotProdId, _IdCotizacion = Model.CotizacionId }, null) |
+                            @Html.ActionLink("Editar", "Edit", "CotizacionProducto", new { _id = (Int32)@item.CotProdId, _IdCotizacion = Model.CotizacionId }, null) |
                             @Html.ActionLink("Det", "Details", "CotizacionProducto", new { _id = (Int32)@item.CotProdId, _IdCotizacion = Model.CotizacionId }, null) |
                             @Html.ActionLink("Del", "Delete", "CotizacionProducto", new { _id = (Int32)@item.CotProdId, _IdCotizacion = Model.CotizacionId }, null)
                         </td>
@@ -217,7 +238,7 @@
                         <td>@item.ValorHora</td>
                         <td>@item.ValorFinal</td>
                         <td>
-                            @Html.ActionLink("Edi", "Edit", "CotizacionServicio", new { _id = (Int32)@item.CotServId, _IdCotizacion = Model.CotizacionId }, null) |
+                            @Html.ActionLink("Editar", "Edit", "CotizacionServicio", new { _id = (Int32)@item.CotServId, _IdCotizacion = Model.CotizacionId }, null) |
                             @Html.ActionLink("Det", "Details", "CotizacionServicio", new { _id = (Int32)@item.CotServId, _IdCotizacion = Model.CotizacionId }, null) |
                             @Html.ActionLink("Del", "Delete", "CotizacionServicio", new { _id = (Int32)@item.CotServId, _IdCotizacion = Model.CotizacionId }, null)
                         </td>
@@ -240,7 +261,7 @@
 {
     @Html.AntiForgeryToken()
     <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+        <input type="submit" value="Eliminar" /> |
+        @Html.ActionLink("Volver", "Index")
     </p>
 }

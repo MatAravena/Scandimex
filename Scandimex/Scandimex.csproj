@@ -228,6 +228,22 @@
     <Compile Include="Migrations\201703040324423_UptPersonaContacto.Designer.cs">
       <DependentUpon>201703040324423_UptPersonaContacto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705082123202_UpdPersonaContacto.cs" />
+    <Compile Include="Migrations\201705082123202_UpdPersonaContacto.Designer.cs">
+      <DependentUpon>201705082123202_UpdPersonaContacto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705180406045_MontosCotizaciones.cs" />
+    <Compile Include="Migrations\201705180406045_MontosCotizaciones.Designer.cs">
+      <DependentUpon>201705180406045_MontosCotizaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705290318250_asd.cs" />
+    <Compile Include="Migrations\201705290318250_asd.Designer.cs">
+      <DependentUpon>201705290318250_asd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705310332459_asd2.cs" />
+    <Compile Include="Migrations\201705310332459_asd2.Designer.cs">
+      <DependentUpon>201705310332459_asd2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Ciudad.cs" />
@@ -495,7 +511,6 @@
     <Content Include="Views\Pais\Index.cshtml" />
     <Content Include="Views\Cotizacion\Details.cshtml" />
     <Content Include="Views\Cotizacion\Delete.cshtml" />
-    <Content Include="Views\Cotizacion\Create.cshtml" />
     <Content Include="Views\CotizacionProducto\Index.cshtml" />
     <Content Include="Views\CotizacionProducto\Create.cshtml" />
     <Content Include="Views\CotizacionServicio\Index.cshtml" />
@@ -507,6 +522,7 @@
     <Content Include="Views\CotizacionServicio\Edit.cshtml" />
     <Content Include="Views\CotizacionServicio\Delete.cshtml" />
     <Content Include="Views\Cotizacion\Edit.cshtml" />
+    <Content Include="Views\Cotizacion\Create.cshtml" />
     <None Include="Web.ScandimexPublish.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -535,6 +551,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703040324423_UptPersonaContacto.resx">
       <DependentUpon>201703040324423_UptPersonaContacto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705082123202_UpdPersonaContacto.resx">
+      <DependentUpon>201705082123202_UpdPersonaContacto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705180406045_MontosCotizaciones.resx">
+      <DependentUpon>201705180406045_MontosCotizaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705290318250_asd.resx">
+      <DependentUpon>201705290318250_asd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705310332459_asd2.resx">
+      <DependentUpon>201705310332459_asd2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

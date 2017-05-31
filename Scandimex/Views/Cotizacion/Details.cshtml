@@ -174,7 +174,7 @@
                         <td>@item.Cantidad</td>
                         <td>@item.ValorFinal</td>
                         <td>
-                            @Html.ActionLink("Edi", "Edit", "CotizacionProducto", new { _id = (Int32)@item.CotProdId, _IdCotizacion = Model.CotizacionId }, null) |
+                            @Html.ActionLink("Editar", "Edit", "CotizacionProducto", new { _id = (Int32)@item.CotProdId, _IdCotizacion = Model.CotizacionId }, null) |
                             @Html.ActionLink("Det", "Details", "CotizacionProducto", new { _id = (Int32)@item.CotProdId, _IdCotizacion = Model.CotizacionId }, null) |
                             @Html.ActionLink("Del", "Delete", "CotizacionProducto", new { _id = (Int32)@item.CotProdId, _IdCotizacion = Model.CotizacionId }, null)
                         </td>
@@ -214,7 +214,7 @@
                         <td>@item.ValorHora</td>
                         <td>@item.ValorFinal</td>
                         <td>
-                            @Html.ActionLink("Edi", "Edit", "CotizacionServicio", new { _id = (Int32)@item.CotServId, _IdCotizacion = Model.CotizacionId }, null) |
+                            @Html.ActionLink("Editar", "Edit", "CotizacionServicio", new { _id = (Int32)@item.CotServId, _IdCotizacion = Model.CotizacionId }, null) |
                             @Html.ActionLink("Det", "Details", "CotizacionServicio", new { _id = (Int32)@item.CotServId, _IdCotizacion = Model.CotizacionId }, null) |
                             @Html.ActionLink("Del", "Delete", "CotizacionServicio", new { _id = (Int32)@item.CotServId, _IdCotizacion = Model.CotizacionId }, null)
                         </td>
@@ -230,5 +230,5 @@
 </fieldset>
 <p>
     @Html.ActionLink("Edi", "Edit", new { _id = Model.CotizacionId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver", "Index")
 </p>

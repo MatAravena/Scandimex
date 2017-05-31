@@ -6,9 +6,9 @@
 
 <h2>Listado de Clientes</h2>
 
-<p>
-    @Html.ActionLink("Crear nuevo", "Create")
-</p>
+<b>   @Html.ActionLink("Crear nuevo", "Create")</b>
+<br />
+
 <table>
     <tr>
         <th>
@@ -72,7 +72,7 @@
                 @Html.DisplayFor(modelItem => item.Ciudad.CiudadNombre)
             </td>
             <td>
-                @Html.ActionLink("Edi", "Edit", new { _Filtro = item.IdCliente }) |
+                @Html.ActionLink("Editar", "Edit", new { _Filtro = item.IdCliente }) |
                 @Html.ActionLink("Det", "Details", new { _Filtro = item.IdCliente }) |
                 @Html.ActionLink("Del", "Delete", new { _Filtro = item.IdCliente })
             </td>

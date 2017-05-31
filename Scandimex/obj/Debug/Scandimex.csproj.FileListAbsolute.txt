@@ -87,6 +87,7 @@ C:\Users\Matias Aravena\Pegas\Scandimex\Scandimex\Scandimex\obj\Debug\Scandimex.
 C:\Users\Matias Aravena\Pegas\Scandimex\Scandimex\Scandimex\obj\Debug\Scandimex.dll
 C:\Users\Matias Aravena\Pegas\Scandimex\Scandimex\Scandimex\obj\Debug\Scandimex.pdb
 C:\Users\Matias Aravena\Pegas\Scandimex\Scandimex\Scandimex\obj\Debug\Scandimex.csprojResolveAssemblyReference.cache
+C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\bin\WebGrease.dll
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\bin\Scandimex.dll.config
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\bin\Scandimex.dll
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\bin\Scandimex.pdb
@@ -118,7 +119,6 @@ C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\bin\Sy
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\bin\System.Web.WebPages.Deployment.dll
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\bin\System.Web.WebPages.dll
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\bin\System.Web.WebPages.Razor.dll
-C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\bin\WebGrease.dll
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\bin\WebMatrix.WebData.dll
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\bin\EnvDTE.dll
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\bin\stdole.dll
@@ -174,13 +174,17 @@ C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\bin\ko
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\bin\ru\System.Spatial.resources.dll
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\bin\zh-Hant\System.Spatial.resources.dll
-C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\obj\Debug\Scandimex.csprojResolveAssemblyReference.cache
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\obj\Debug\Scandimex.Migrations.intiial.resources
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\obj\Debug\Scandimex.Migrations.AddValuefieldsCotizaciones.resources
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\obj\Debug\Scandimex.Migrations.TipoServicio.resources
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\obj\Debug\Scandimex.Migrations.AddSubTipoProducto.resources
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\obj\Debug\Scandimex.Migrations.AddSubSubTipo.resources
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\obj\Debug\Scandimex.Migrations.UptPersonaContacto.resources
+C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\obj\Debug\Scandimex.Migrations.UpdPersonaContacto.resources
+C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\obj\Debug\Scandimex.Migrations.MontosCotizaciones.resources
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\obj\Debug\Scandimex.csproj.GenerateResource.Cache
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\obj\Debug\Scandimex.dll
 C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\obj\Debug\Scandimex.pdb
+C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\obj\Debug\Scandimex.Migrations.asd.resources
+C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\obj\Debug\Scandimex.csprojResolveAssemblyReference.cache
+C:\Users\Matute'sPc\Documents\Pegas\Scandimex\Scandimex Project\Scandimex\obj\Debug\Scandimex.Migrations.asd2.resources

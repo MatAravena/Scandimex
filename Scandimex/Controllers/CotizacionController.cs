@@ -127,7 +127,9 @@ namespace Scandimex.Controllers
                     .Where(x => x.Value.Errors.Count > 0)
                     .Select(x => new { x.Key, x.Value.Errors })
                     .ToArray();
-
+                
+                ViewBag.Paises = _common.GetPaises();
+                ViewBag.Ciudades = _common.GetCiudades();
                 ViewBag.Clientes = _common.GetClientes();
                 return View();
             }

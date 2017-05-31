@@ -34,7 +34,7 @@ namespace Scandimex.Models
         [Required]
         [Display(Name = "Sub Categoría")]
         public String SubCategoría { get; set; }
-        
+
 
         [StringLength(5000, MinimumLength = 3)]
         //[RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ' ,.]*$")]
@@ -44,13 +44,13 @@ namespace Scandimex.Models
 
 
         [Display(Name = "Valor Unitario")]
-        public double ValorUnitario { get; set; }
+        public Double ValorUnitario { get; set; }
 
         [Display(Name = "Cantidad")]
-        public double Cantidad { get; set; }
+        public Double Cantidad { get; set; }
 
         [Display(Name = "Total")]
-        public double ValorFinal { get; set; }
+        public Double ValorFinal { get; set; }
 
     }
 }

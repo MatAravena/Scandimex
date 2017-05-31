@@ -6,47 +6,43 @@
 
 <h2>Listado de Ciudades</h2>
 
-<p>
-    @Html.ActionLink("Crear nuevo", "Create")
-</p>
- 
-    @using (Html.BeginForm("Index", "Ciudad", FormMethod.Get))
-    {
+<b>   @Html.ActionLink("Crear nuevo", "Create")</b>
+<br />
+
+@using (Html.BeginForm("Index", "Ciudad", FormMethod.Get))
+{
     <p>
         Ciudad: @Html.TextBox("_Filtro")
-        <input type="submit" value="Search" />
+        <input type="submit" value="Buscar" />
     </p>
-    } 
+}
 
-    <table>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CiudadNombre)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pais.PaisNombre)
+        </th> 
+    </tr>
+
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CiudadNombre)
-
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pais.PaisNombre)
-            </th>
-            <th>
-
-            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.CiudadNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pais.PaisNombre)
+            </td>
+            <td>
+                @Html.ActionLink("Edi", "Edit", new { id = item.CiudadCodigo }) |
+                @Html.ActionLink("Det", "Details", new { id = item.CiudadCodigo }) |
+                @Html.ActionLink("Del", "Delete", new { id = item.CiudadCodigo })
+            </td>
         </tr>
+    }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CiudadNombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Pais.PaisNombre)
-                </td>
-                <td>
-                    @Html.ActionLink("Edi", "Edit", new { id = item.CiudadCodigo }) |
-                    @Html.ActionLink("Det", "Details", new { id = item.CiudadCodigo }) |
-                    @Html.ActionLink("Del", "Delete", new { id = item.CiudadCodigo })
-                </td>
-            </tr>
-        }
-
-    </table>
+</table>

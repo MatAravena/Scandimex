@@ -28,7 +28,7 @@
 
         <div id="DivTipoServicio" class="form-group">
             <div class="col-md-10">
-                @Html.LabelFor(model => model.TipoServicioCodigo, "Select Client", new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.TipoServicioCodigo, "Seleccionar cliente", new { @class = "control-label col-md-2" })
                 @Html.DropDownListFor(model => model.TipoServicioCodigo, new SelectList(ViewBag.TipoServicios, "TipoServicioCodigo", "NombreTipoServicio"))
 
                 @Html.ValidationMessageFor(model => model.TipoServicioCodigo, "Debe seleccionar algun Cliente.")
@@ -76,7 +76,7 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Crear" />
         </p>
     </fieldset>
 }

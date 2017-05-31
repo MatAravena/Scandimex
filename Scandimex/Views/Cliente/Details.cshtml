@@ -94,7 +94,7 @@
                     <td>@item.PhoneMovil</td>
                     <td>@item.Email</td>
                     <td>
-                        @Html.ActionLink("Edi", "Edit", "PersonaContacto", new { _id = (Int32)@item.PersonaContactoId }, null) |
+                        @Html.ActionLink("Editar", "Edit", "PersonaContacto", new { _id = (Int32)@item.PersonaContactoId }, null) |
                         @Html.ActionLink("Det", "Details", "PersonaContacto", new { _id = (Int32)@item.PersonaContactoId }, null) |
                         @Html.ActionLink("Del", "Delete", "PersonaContacto", new { _id = (Int32)@item.PersonaContactoId }, null)
                     </td>
@@ -113,6 +113,6 @@
 
 </fieldset>
 <p>
-    @Html.ActionLink("Edi", "Edit", new { _Filtro = Model.IdCliente }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { _Filtro = Model.IdCliente }) |
+    @Html.ActionLink("Volver", "Index")
 </p>

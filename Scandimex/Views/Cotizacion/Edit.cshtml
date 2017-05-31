@@ -134,7 +134,7 @@
 
                     <div class="form-group">
                         <div class="col-md-10">
-                            @Html.DropDownListFor(model => model.CiudadCodigo, new SelectList(String.Empty, "CiudadCodigo", "CiudadNombre"), "-- Select --")
+                            @Html.DropDownListFor(model => model.CiudadCodigo, new SelectList(String.Empty, "CiudadCodigo", "CiudadNombre"), "-- Seleccionar --")
 
                             @Html.ValidationMessageFor(model => model.CiudadCodigo, "Debe seleccionar alguna ciudad.")
                             <span id="states-loading-progress" style="display: none;">Please wait..</span>
@@ -213,7 +213,7 @@
                             <td>@item.Cantidad</td>
                             <td>@item.ValorFinal</td>
                             <td>
-                                @Html.ActionLink("Edi", "Edit", "CotizacionProducto", new { _id = (Int32)@item.CotProdId, _IdCotizacion = Model.CotizacionId }, null) |
+                                @Html.ActionLink("Editar", "Edit", "CotizacionProducto", new { _id = (Int32)@item.CotProdId, _IdCotizacion = Model.CotizacionId }, null) |
                                 @Html.ActionLink("Det", "Details", "CotizacionProducto", new { _id = (Int32)@item.CotProdId, _IdCotizacion = Model.CotizacionId }, null) |
                                 @Html.ActionLink("Del", "Delete", "CotizacionProducto", new { _id = (Int32)@item.CotProdId, _IdCotizacion = Model.CotizacionId }, null)
                             </td>
@@ -253,7 +253,7 @@
                             <td>@item.ValorHora</td>
                             <td>@item.ValorFinal</td>
                             <td>
-                                @Html.ActionLink("Edi", "Edit", "CotizacionServicio", new { _id = (Int32)@item.CotServId, _IdCotizacion = Model.CotizacionId }, null) |
+                                @Html.ActionLink("Editar", "Edit", "CotizacionServicio", new { _id = (Int32)@item.CotServId, _IdCotizacion = Model.CotizacionId }, null) |
                                 @Html.ActionLink("Det", "Details", "CotizacionServicio", new { _id = (Int32)@item.CotServId, _IdCotizacion = Model.CotizacionId }, null) |
                                 @Html.ActionLink("Del", "Delete", "CotizacionServicio", new { _id = (Int32)@item.CotServId, _IdCotizacion = Model.CotizacionId }, null)
                             </td>
@@ -269,7 +269,7 @@
 
         <br />
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Guardar" />
         </p>
     </fieldset>
 }

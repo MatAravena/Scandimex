@@ -33,12 +33,21 @@ namespace Scandimex.Models
         [DataType(DataType.PhoneNumber)]
         [Display(Name = "Fono Movil")]
         public String PhoneMovil { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Fono Extra")]
+        public String PhoneExtra { get; set; }
 
 
         [Display(Name = "Email")]
         [DataType(DataType.EmailAddress)]
         [EmailAddress(ErrorMessage = "Dirección Email inválida.")]
         public String Email { get; set; }
+
+        [Display(Name = "Email2")]
+        [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage = "Dirección Email inválida.")]
+        public String Email2 { get; set; }
+
 
         public int IdCliente { get; set; }
         [ForeignKey("IdCliente")]

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Scandimex.Models
 {
-    public class Cotizaciones : IValidatableObject
+    public class Cotizaciones //: IValidatableObject
     {
 
         [Key]
@@ -18,7 +18,7 @@ namespace Scandimex.Models
         public String CodigoInterno { get; set; }
 
 
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
         [Display(Name = "Fecha")]
         public DateTime FechaCotizacion { get; set; }
@@ -28,6 +28,13 @@ namespace Scandimex.Models
         public int IdCliente { get; set; }
         [ForeignKey("IdCliente")]
         public virtual Clientes Cliente { get; set; }
+
+
+        [Display(Name = "Monto de Cotización")]
+        public double? MontoCotizacion { get; set; }
+
+        [Display(Name = "Monto Comprado")]
+        public double? MontoComprado { get; set; }
 
 
         [StringLength(5000, MinimumLength = 3)]
@@ -41,27 +48,27 @@ namespace Scandimex.Models
 
 
         //[DataCompareValidation("PlazoEntregaHasta", ErrorMessage = "Return date should be later than loan date")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Plazo Desde")]
         public DateTime PlazoEntregaDesde { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Plazo Hasta")]
         public DateTime PlazoEntregaHasta { get; set; }
 
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            List<ValidationResult> res = new List<ValidationResult>();
-            if (PlazoEntregaHasta < PlazoEntregaDesde)
-            {
-                ValidationResult mss = new ValidationResult("Fecha plazo desde debe ser mayor a la fecha hasta.");
-                res.Add(mss);
-            }
-            return res;
-        }
 
+        //IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        //{
+        //    List<ValidationResult> res = new List<ValidationResult>();
+        //    if (PlazoEntregaHasta < PlazoEntregaDesde)
+        //    {
+        //        ValidationResult mss = new ValidationResult("Fecha plazo desde debe ser mayor a la fecha hasta.");
+        //        res.Add(mss);
+        //    }
+        //    return res;
+        //}
 
         [Display(Name = "Garantía")]
         [StringLength(500, MinimumLength = 3)]
@@ -71,15 +78,14 @@ namespace Scandimex.Models
         [StringLength(500, MinimumLength = 3)]
         public String CondicionesPago { get; set; }
 
-
-        [Display(Name = "País")]
+         [Display(Name = "País")]
         public String PaisAbreviacion { get; set; }
         [ForeignKey("PaisAbreviacion")]
         public virtual Pais Pais { get; set; }
 
 
         [Display(Name = "Ciudad")]
-        public int? CiudadCodigo { get; set; }
+        public int CiudadCodigo { get; set; }
         [ForeignKey("CiudadCodigo")]
         public virtual Ciudad Ciudad { get; set; }
 

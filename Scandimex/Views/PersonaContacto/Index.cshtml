@@ -8,14 +8,17 @@
 
 @*Genre: @Html.DropDownList("Clientes", "All")*@
 
-<p>
+<b>
     @*@Html.ActionLink("Agregar nueva Persona", "Create", new { _IdCliente = @ViewBag.ClienteSeleccionado })*@
-    @Html.ActionLink("Agregar nueva Persona", "Create", new { _id = 0 })
-</p>
+    @Html.ActionLink("Crear nuevo", "Create", new { _id = 0 })
+</b>
+<br />
+
+
 @using (Html.BeginForm("Index", "PersonaContacto", FormMethod.Get))
 {
     <p id="cmbClientes">
-        Client: @Html.DropDownList("cmbClientes", new SelectList(ViewBag.Clientes, "IdCliente", "NombreCompañia"), "-- Select a Client -- ")
+        Client: @Html.DropDownList("cmbClientes", new SelectList(ViewBag.Clientes, "IdCliente", "NombreCompañia"), "-- Seleccionar cliente -- ")
         &nbsp;&nbsp;
         <input type="submit" value="Filter" />
     </p>
@@ -66,7 +69,7 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.ActionLink("Edi", "Edit", new { _Id = item.PersonaContactoId }) |
+                @Html.ActionLink("Edi", "Edit", new { _id = item.PersonaContactoId }) |
                 @Html.ActionLink("Det", "Details", new { _Id = item.PersonaContactoId }) |
                 @Html.ActionLink("Del", "Delete", new { _Id = item.PersonaContactoId })
             </td>

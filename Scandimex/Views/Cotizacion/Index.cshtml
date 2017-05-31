@@ -4,17 +4,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Cotizaciones</h2>
+<h2>Cotizaciones</h2> 
 
-<p>
-    @Html.ActionLink("Crear nueva cotización", "Create")
-</p>
+<b>   @Html.ActionLink("Crear nuevo", "Create")</b>
+<br />
 
     @using (Html.BeginForm("Index", "Cotizacion", FormMethod.Get))
     {
     <p>
-        Internal Code: @Html.TextBox("_Filtro")
-        <input type="submit" value="Search" />
+        Código Interno: @Html.TextBox("_Filtro")
+        <input type="submit" value="Buscar" />
     </p>
     }
 
@@ -65,8 +64,8 @@
                     @Html.ActionLink("Edi", "Edit", new { _id = item.CotizacionId }) |
                     @Html.ActionLink("Det", "Details", new { _id = item.CotizacionId }) |
                     @Html.ActionLink("Del", "Delete", new { _id = item.CotizacionId }) |||
-                    Agregar @Html.ActionLink("Productos", "Create", "CotizacionProducto", new { _id = item.CotizacionId }, null) |
-                    @Html.ActionLink("Servicios", "Create", "CotizacionServicio", new { _id = item.CotizacionId }, null)
+                    Agregar @Html.ActionLink("Prod", "Create", "CotizacionProducto", new { _id = item.CotizacionId }, null) |
+                    @Html.ActionLink("Serv", "Create", "CotizacionServicio", new { _id = item.CotizacionId }, null)
                 </td>
             </tr>
         }

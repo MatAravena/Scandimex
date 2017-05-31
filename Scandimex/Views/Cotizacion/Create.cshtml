@@ -5,11 +5,9 @@
 }
 
 <h2>Cree una nueva Cotización</h2>
-@*<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">*@
-@*<link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">*@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
-
 
 @using (Html.BeginForm())
 {
@@ -19,194 +17,140 @@
     <fieldset>
         <legend>Cotizaciones</legend>
 
-        <table>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CodigoInterno)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CodigoInterno)
+            @Html.ValidationMessageFor(model => model.CodigoInterno)
+        </div>
 
-            <tr>
-                <td>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.CodigoInterno)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.CodigoInterno)
-                        @Html.ValidationMessageFor(model => model.CodigoInterno)
-                    </div>
-                </td>
-                <td>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.FechaCotizacion)
-                    </div>
-                    <div class="editor-field">
-                        @Html.TextBoxFor(model => model.FechaCotizacion, "{0:dd/MM/yyyy}", new { @class = "datepicker" })
-                        @*@Html.TextBoxFor(model => model.FechaCotizacion, string.Empty, new { @class = "datepicker" })*@
-                        @Html.ValidationMessageFor(model => model.FechaCotizacion)
-                        @*@Html.TextBox("", String.Format("{0:dd/MM/yyyy}", Model.Value), new { @class = "jq-date" })*@
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div id="DivCliente" class="form-group">
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.IdCliente, "Select Client", new { @class = "control-label col-md-2" })
-                            @Html.DropDownListFor(model => model.IdCliente, new SelectList(ViewBag.Clientes, "IdCliente", "NombreCompañia"))
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FechaCotizacion)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.FechaCotizacion)
+            @*@Html.TextBoxFor(model => model.FechaCotizacion, "{0:dd/MM/yyyy}", new { @class = "datepicker" })*@
+            @Html.ValidationMessageFor(model => model.FechaCotizacion)
+            @*@Html.TextBox("", String.Format("{0:dd/MM/yyyy}", Model.Value), new { @class = "jq-date" })*@
+        </div>
 
-                            @Html.ValidationMessageFor(model => model.IdCliente, "Debe seleccionar algun Cliente.")
-                        </div>
-                    </div>
-                </td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Requerido)
-                    </div>
-                    <div class="editor-field">
-                        @Html.TextAreaFor(model => model.Requerido)
-                        @Html.ValidationMessageFor(model => model.Requerido)
-                    </div>
-                </td>
-                <td>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Descripcion)
-                    </div>
-                    <div class="editor-field">
-                        @Html.TextAreaFor(model => model.Descripcion)
-                        @Html.ValidationMessageFor(model => model.Descripcion)
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
+        <div id="DivCliente" class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.IdCliente, "Seleccionar cliente", new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.IdCliente, new SelectList(ViewBag.Clientes, "IdCliente", "NombreCompañia"))
 
-
-                    @*<div class="editor-label">
-                            @Html.LabelFor(model => model.FechaCotizacion)
-                        </div>
-                        <div class="editor-field">
-                            @Html.TextBoxFor(model => model.FechaCotizacion, string.Empty, new { @class = "datepicker" })
-                            @Html.ValidationMessageFor(model => model.FechaCotizacion)
-                        </div>*@
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.PlazoEntregaDesde)
-                    </div>
-                    <div class="editor-field">
-                        @Html.TextBoxFor(model => model.PlazoEntregaDesde, string.Empty, new { @class = "datepicker" })
-                        @Html.ValidationMessageFor(model => model.PlazoEntregaDesde)
-                    </div>
-                </td>
-                <td>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.PlazoEntregaHasta)
-                    </div>
-                    <div class="editor-field">
-                        @Html.TextBoxFor(model => model.PlazoEntregaHasta, string.Empty, new { @class = "datepicker" })
-                        @Html.ValidationMessageFor(model => model.PlazoEntregaHasta)
-                    </div>
-
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Garantia)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.Garantia)
-                        @Html.ValidationMessageFor(model => model.Garantia)
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.CondicionesPago)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.CondicionesPago)
-                        @Html.ValidationMessageFor(model => model.CondicionesPago)
-                    </div>
-                </td>
-                <td>
-
-                    <div id="DivCodigoPais" class="form-group">
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.PaisAbreviacion, "Select country", new { @class = "control-label col-md-2" })
-                            @Html.DropDownListFor(model => model.PaisAbreviacion, new SelectList(ViewBag.Paises, "PaisAbreviacion", "PaisNombre"))
-
-                            @Html.ValidationMessageFor(model => model.PaisAbreviacion, "Debe seleccionar algun pais.")
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.CiudadCodigo, "Select City", new { @class = "control-label col-md-2" })
-                            @Html.DropDownListFor(model => model.CiudadCodigo, new SelectList(String.Empty, "CiudadCodigo", "CiudadNombre"), "-- Select --")
-
-                            @Html.ValidationMessageFor(model => model.CiudadCodigo, "Debe seleccionar alguna ciudad.")
-                            <span id="states-loading-progress" style="display: none;">Please wait..</span>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Direccion)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.Direccion)
-                        @Html.ValidationMessageFor(model => model.Direccion)
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Validez)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.Validez)
-                        @Html.ValidationMessageFor(model => model.Validez)
-                    </div>
-                </td>
-                <td>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Aceptacion)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.Aceptacion)
-                        @Html.ValidationMessageFor(model => model.Aceptacion)
-                    </div>
-                </td>
-            </tr>
-        </table>
-
-        @*<div id="Servicios">
-                <h3>Servicies</h3>
-                <p>
-                    <input type="submit" value="Add Servicie" name="AddServicies" />
-                </p>
-                 @using (Html.BeginForm("Action", "Controller")) {
-                    Html.RenderPartial("~/Views/WidgetEditor/_CreateImageWidget.cshtml")}
-
-                <div id="PartialServicio">
-                    @Html.Partial("/Views/CotizacionServicio/Create.cshtml", model: Model )
-                </div>
+                @Html.ValidationMessageFor(model => model.IdCliente, "Debe seleccionar algun Cliente.")
             </div>
+        </div>
 
-            <div id="Productos">
-                <h3>Products</h3>
-                <p>
-                    <input type="submit" value="Add Product" name="AddProduct" />
-                </p>
-                <div id="PartialServicio">
-                    @Html.Partial("/Views/CotizacionProducto/Create.cshtml", model: Model)
-                </div>
-            </div>*@
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MontoCotizacion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MontoCotizacion)
+            @Html.ValidationMessageFor(model => model.MontoCotizacion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MontoComprado)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MontoComprado)
+            @Html.ValidationMessageFor(model => model.MontoComprado)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Requerido)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Requerido)
+            @Html.ValidationMessageFor(model => model.Requerido)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Descripcion)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Descripcion)
+            @Html.ValidationMessageFor(model => model.Descripcion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PlazoEntregaDesde)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.PlazoEntregaDesde)
+            @Html.ValidationMessageFor(model => model.PlazoEntregaDesde)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PlazoEntregaHasta)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.PlazoEntregaHasta)
+            @Html.ValidationMessageFor(model => model.PlazoEntregaHasta)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Garantia)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Garantia)
+            @Html.ValidationMessageFor(model => model.Garantia)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CondicionesPago)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CondicionesPago)
+            @Html.ValidationMessageFor(model => model.CondicionesPago)
+        </div>
+
+        <div id="DivCodigoPais" class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.PaisAbreviacion, "Seleccionar País", new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.PaisAbreviacion, new SelectList(ViewBag.Paises, "PaisAbreviacion", "PaisNombre"))
+
+                @Html.ValidationMessageFor(model => model.PaisAbreviacion, "Debe seleccionar algun pais.")
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.CiudadCodigo, "Seleccionar Ciudad", new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.CiudadCodigo, new SelectList(String.Empty, "CiudadCodigo", "CiudadNombre"), "-- Seleccionar --")
+
+                @Html.ValidationMessageFor(model => model.CiudadCodigo, "Debe seleccionar alguna ciudad.")
+                <span id="states-loading-progress" style="display: none;">Please wait..</span>
+            </div>
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Direccion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Direccion)
+            @Html.ValidationMessageFor(model => model.Direccion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Validez)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Validez)
+            @Html.ValidationMessageFor(model => model.Validez)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Aceptacion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Aceptacion)
+            @Html.ValidationMessageFor(model => model.Aceptacion)
+        </div>
 
         <p>
             <input type="submit" value="Create" />
@@ -215,7 +159,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver", "Index")
 </div>
 
 @section Scripts {
@@ -260,22 +204,20 @@
             });
 
             $("#PaisAbreviacion").change();
-            $("#IdCliente").change();
-            $('.datepicker').datepicker();
-
-            $(".FechaCotizacion").datepicker("option", "dateFormat", "yy-mm-dd");
-
-            $(".FechaCotizacion").datepicker({
-                dateFormat: "dd-M-yy"
-            });
-            //dateFormat: "dd/MM/yyyy"
-
-
-            $('.PlazoEntregaDesde').datepicker();
-            $('.PlazoEntregaHasta').datepicker();
-
 
         });
 
+        $(document).ready(function () {
+            $('#FechaCotizacion').datepicker({
+                dateFormat: "dd/mm/yy",
+                showStatus: true,
+                showWeeks: true,
+                currentText: 'Now',
+                autoSize: true,
+                gotoCurrent: true,
+                showAnim: 'blind',
+                highlightWeek: true
+            });
+        });
     </script>
 }
