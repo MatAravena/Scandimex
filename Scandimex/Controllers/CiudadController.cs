@@ -42,14 +42,13 @@ namespace Scandimex.Controllers
 
         //
         // GET: /Ciudad/Details/5
-
         public ActionResult Details(int id)
         {
             try
             {
                 var _ListCiudades = (from m in _common.bd.Ciudades
-                                     where m.CiudadCodigo == id
-                                     select m).First();
+                                        where m.CiudadCodigo == id
+                                        select m).First();
 
                 return View(_ListCiudades);
 
@@ -62,7 +61,6 @@ namespace Scandimex.Controllers
 
         //
         // GET: /Ciudad/Create
-
         public ActionResult Create()
         {
             ViewBag.Paises = _common.GetPaises();
@@ -71,7 +69,6 @@ namespace Scandimex.Controllers
 
         //
         // POST: /Ciudad/Create
-
         [HttpPost]
         public ActionResult Create(Ciudad _City)
         {
@@ -95,7 +92,6 @@ namespace Scandimex.Controllers
 
         //
         // GET: /Ciudad/Edit/5
-
         public ActionResult Edit(int id)
         {
             if (String.IsNullOrEmpty(id.ToString()))
@@ -115,7 +111,6 @@ namespace Scandimex.Controllers
 
         //
         // POST: /Ciudad/Edit/5
-
         [HttpPost]
         public ActionResult Edit(int id, Ciudad _city)
         {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Scandimex.Models;
+using Microsoft.Reporting.WebForms;
 
 namespace Scandimex.Controllers
 {
@@ -127,7 +127,7 @@ namespace Scandimex.Controllers
                     .Where(x => x.Value.Errors.Count > 0)
                     .Select(x => new { x.Key, x.Value.Errors })
                     .ToArray();
-                
+
                 ViewBag.Paises = _common.GetPaises();
                 ViewBag.Ciudades = _common.GetCiudades();
                 ViewBag.Clientes = _common.GetClientes();
@@ -231,7 +231,6 @@ namespace Scandimex.Controllers
                     return RedirectToAction("Index");
                 }
 
-
                 var errors = ModelState
                     .Where(x => x.Value.Errors.Count > 0)
                     .Select(x => new { x.Key, x.Value.Errors })
@@ -242,6 +241,45 @@ namespace Scandimex.Controllers
             {
                 return View("Error", ex);
             }
+        }
+
+        public ActionResult RptPrueba()
+        {
+
+            return View();
+            //try
+            //{
+            //    byte[] result;
+
+            //    using (var renderer = new WebReportRenderer(@"~\Report.rdlc", "Report.pdf"))
+            //    {
+            //        var adapter = new ReportTableAdapter();
+            //        renderer.ReportInstance.DataSources.Add(new ReportDataSource("ReportDataSet_Report", adapter.GetData()));
+            //        ReportParameter p0 = new ReportParameter("p0", "SomeValues");
+            //        renderer.ReportInstance.SetParameters(new[] { p0 });
+            //        result = renderer.RenderToBytesPDF();
+            //    }
+
+            //    return File(result, "application/pdf", "Report.pdf");
+            //}
+            //catch (Exception ex)
+            //{
+            //    return View("Error", ex);
+            //}
+        }
+
+        //public ActionResult ReportPDF()
+        //{
+        //    var reportpath = Server.MapPath("~/Report/Reporte1.rdlc");
+
+        //    LstCotizaciones lst = new Models.LstCotizaciones();
+
+        //    RenderReport(reportpath, "PDF", Model.root);
+        //}
+
+        private void RenderReport(string reportpath, string v, object root)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -47,7 +47,13 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Build" />
+    <Reference Include="Microsoft.Build.Tasks.v4.0" />
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.Web.BrowserLink.12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -255,6 +261,7 @@
     <Compile Include="Models\CotizacionServicio.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\LstCotizaciones.cs" />
     <Compile Include="Models\Pais.cs" />
     <Compile Include="Models\PersonaContacto.cs" />
     <Compile Include="Models\ScandimexContexto.cs" />
@@ -265,6 +272,24 @@
     <Compile Include="Models\TiposCliente.cs" />
     <Compile Include="Models\TipoServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RPTDatasets\DsCotizaciones.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsCotizaciones.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ScandimexDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScandimexDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebReportRenderer .cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -415,8 +440,32 @@
     <Content Include="Content\bootstrap\alerts.less" />
     <Content Include="Content\bootstrap-datetimepicker-build.less" />
     <Content Include="Content\_bootstrap-datetimepicker.less" />
+    <Content Include="Views\Cotizacion\RptView.aspx" />
+    <Content Include="WebForm1.aspx" />
     <None Include="Properties\PublishProfiles\Scandimex.pubxml" />
     <None Include="Properties\PublishProfiles\ScandimexOficina.pubxml" />
+    <Content Include="ScandimexDataSet.xsc">
+      <DependentUpon>ScandimexDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="RPTDatasets\DsCotizaciones.xsc">
+      <DependentUpon>DsCotizaciones.xsd</DependentUpon>
+    </Content>
+    <None Include="RPTDatasets\DsCotizaciones.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsCotizaciones.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RPTDatasets\DsCotizaciones.xss">
+      <DependentUpon>DsCotizaciones.xsd</DependentUpon>
+    </Content>
+    <None Include="ScandimexDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ScandimexDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ScandimexDataSet.xss">
+      <DependentUpon>ScandimexDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
@@ -523,12 +572,14 @@
     <Content Include="Views\CotizacionServicio\Delete.cshtml" />
     <Content Include="Views\Cotizacion\Edit.cshtml" />
     <Content Include="Views\Cotizacion\Create.cshtml" />
+    <Content Include="Views\Cotizacion\RptPrueba.cshtml" />
     <None Include="Web.ScandimexPublish.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Reportes\Cotizaciones\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -564,6 +615,7 @@
     <EmbeddedResource Include="Migrations\201705310332459_asd2.resx">
       <DependentUpon>201705310332459_asd2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Report1.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

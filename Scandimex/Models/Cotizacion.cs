@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,6 +11,7 @@ namespace Scandimex.Models
     public class Cotizaciones //: IValidatableObject
     {
 
+        [JsonProperty]
         [Key]
         public int CotizacionId { get; set; }
 
@@ -113,4 +115,5 @@ namespace Scandimex.Models
         //public List<CotizacionArchivo> CotArchivos { get; set; }
 
     }
+    
 }
