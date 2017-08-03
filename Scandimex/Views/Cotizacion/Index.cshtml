@@ -4,78 +4,80 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Cotizaciones</h2> 
+<h2>Cotizaciones</h2>
 
 <b>   @Html.ActionLink("Crear nuevo", "Create")</b>
 <br />
 
-    @using (Html.BeginForm("Index", "Cotizacion", FormMethod.Get))
-    {
+@using (Html.BeginForm("Index", "Cotizacion", FormMethod.Get))
+{
     <p>
         Código Interno: @Html.TextBox("_Filtro")
         <input type="submit" value="Buscar" />
     </p>
+}
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoInterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlazoEntregaDesde)
+        </th>
+        <th>
+            Hasta @*@Html.DisplayNameFor(model => model.PlazoEntregaHasta)*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaisAbreviacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CiudadCodigo)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoInterno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.NombreCompañia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlazoEntregaDesde)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlazoEntregaHasta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pais.PaisNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ciudad.CiudadNombre)
+            </td>
+            <td>
+                @Html.ActionLink("Edi", "Edit", new { _id = item.CotizacionId }) |
+                @Html.ActionLink("Det", "Details", new { _id = item.CotizacionId }) |
+                @Html.ActionLink("Del", "Delete", new { _id = item.CotizacionId }) |||
+                Agregar @Html.ActionLink("Prod", "Create", "CotizacionProducto", new { _id = item.CotizacionId }, null) |
+                @Html.ActionLink("Serv", "Create", "CotizacionServicio", new { _id = item.CotizacionId }, null)
+            </td>
+        </tr>
     }
 
-    <table>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CodigoInterno)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdCliente)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PlazoEntregaDesde)
-            </th>
-            <th>
-                Hasta @*@Html.DisplayNameFor(model => model.PlazoEntregaHasta)*@
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PaisAbreviacion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CiudadCodigo)
-            </th>
-        </tr>
+</table>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CodigoInterno)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cliente.NombreCompañia)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PlazoEntregaDesde)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PlazoEntregaHasta)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Pais.PaisNombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Ciudad.CiudadNombre)
-                </td>
-                <td>
-                    @Html.ActionLink("Edi", "Edit", new { _id = item.CotizacionId }) |
-                    @Html.ActionLink("Det", "Details", new { _id = item.CotizacionId }) |
-                    @Html.ActionLink("Del", "Delete", new { _id = item.CotizacionId }) |||
-                    Agregar @Html.ActionLink("Prod", "Create", "CotizacionProducto", new { _id = item.CotizacionId }, null) |
-                    @Html.ActionLink("Serv", "Create", "CotizacionServicio", new { _id = item.CotizacionId }, null)
-                </td>
-            </tr>
-        }
-
-    </table>
-
-<br />
-Informes
+<br /><br />
+<h1>Informes</h1>
 
 <p>
     He aqui la sección de los informes weones
+    @Html.ActionLink("Reporte Prueba", "RptPrueba")
 
+    @Html.Partial("RptView")
 </p>
